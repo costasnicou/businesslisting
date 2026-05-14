@@ -1,0 +1,32 @@
+{% extends 'listings/base.html' %}
+{% block title %}  Homepage {% endblock %}
+{% block main %}
+<div class="hm-cover">
+
+    <div class="hm-cover-content">
+        <hgroup>
+            <h1>Explore Amazing Destinations</h1>
+            <h2>Find great places to stay, eat, shop or visit from local experts.</h2>
+        </hgroup>
+
+        <div class="form-wraper">
+
+        </div>
+
+        <p class="featured-intro">What are you interested in?</p>
+    </div>
+
+</div>
+
+<section class="featured-categories">
+    
+    <div class="featured-categories-fwraper">
+        {% for featured_category in featured_categories %}
+            <div class="featured_category">
+                <img src="{{featured_category.cat_photo.url }}" alt="">
+                <p class="cat-name">{{featured_category.cat_name}}</p>
+            </div>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

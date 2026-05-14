@@ -1,0 +1,109 @@
+<!-- VISITOR EXPERIENCE
+--------------------------------- -->
+
+<!-- HOMEPAGE
+---MENU----
+Header menu for a visitor will be limited with menu items: Home,
+Explore parent menu item with a submenu of cities, Listings category
+parent menu with a submenu of listings categories and an options to login/sign up.
+
+---Listings Overview---
+A listing overview in homepage must show a business’s featured image, working status based on 
+the current time compared to business working hours, review stars with a number of reviews, 
+city location and phone number. When a user clicks on a listing will be redirected to the business 
+dedicated page where he/she can find information about the business. 
+
+--SEARCH HOMEPAGE COVER---
+On the homepage cover the user will be able to search listings based on business category or city.
+
+--CITIES SECTION
+In addition the visitor can find a section with city links that will redirect him to a page with listings 
+in the selected city. 
+-->
+
+<!-- Business Page
+
+Each dedicated business page will have an overview description, uploaded photos and an optional video, 
+working hours, price range, location on a map, contact details like business phone, email and social links 
+and last but not least user reviews. A business can have a many to many relationship with self which 
+can be  used to related a business to other businesses. 
+-->
+
+<!-- Cities Page
+Cities page must show listings based on chosen city and have links for other cities if the user decides
+to visit another city’s listings. Also I imagine having a cover as well for further filtering listings 
+based on listing category. 
+-->
+
+<!-- LOGGED IN EXPERIENCE
+ ----------------------------------------- -->
+ <!-- Business Page
+	if user who created the business
+listing. a link to manage listing
+must exist that will redirect to
+manage the business
+
+	If not the user who created the business
+but you are an owner of business listing
+request to partner button must exist that
+will show a pop up form to request 
+partnership on the business page
+
+	if you are the listing owner cannot add reviews to your own listing
+	users can add reviews whether they own a business listing or not, but cannot add a review in their own listings
+-->
+
+<!-- User Profile
+	Personal Details
+		Change password
+		change email
+	Manage Listings
+		View user's listings each listing will have a link to a dedicated edit page of that listing.
+		Edit Or Delete a listing
+-->
+
+<!-- Header
+	Notifications will appear only if you own at least one business listing.
+		notifications for partnership
+		review notifications from users
+ -->
+
+
+
+<!-- 
+
+MODELS:
+
+//-ratings average score from all business ratings
+
+BUSINESS
+-user
+-name
+-overview
+-imgs
+-working hours
+-city
+-category
+-phone
+-self many to many
+-location
+
+
+Business Hours
+Mon-Sun
+
+
+CITY
+-name
+-url
+
+CATEGORY
+-name
+-url
+
+REVIEW
+-business
+-rating
+-reviewdesc
+
+-->

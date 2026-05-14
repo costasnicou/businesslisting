@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/app.css' %}">
+
+    <title>{% block title %} {% endblock %}</title>
+</head>
+<body>
+    <header class="header">
+        <nav class="navigation">
+            <div class="navigation-wraper">            
+                <img src="{% static 'imgs/logo.png' %}" alt="" class="logo">
+                <ul class="nav-links">
+
+                    <li class="nav-item"><a class="nav-link" href="">Home</a></li>
+                    <li class="nav-item dropdown"><span class="nav-link">Cities</span>
+                        <div class="dropdown-content">
+                            <ul class="dropdown-menu">
+                                {% for city in cities %}
+                                    <li class="dropdown-item"><a href="" class="dropdown-link nav-link">{{city.city_name}}</a></li>
+                                {% endfor %}
+                            </ul>
+
+                        </div>
+                    </li> 
+                    <li class="nav-item dropdown"><span class="nav-link">Categories</span>
+                        <div class="dropdown-content">
+                            <ul class="dropdown-menu">
+                                {% for category in categories %}
+                                    <li class="dropdown-item"><a href="" class="dropdown-link nav-link">{{category.cat_name}}</a></li>
+                                {% endfor %}
+                            </ul>
+
+                        </div>
+                    
+                    </li>
+                   
+
+                </ul>
+
+                <ul class="login-status">
+                    <li class="nav-item"><a href="" class="nav-link">Login</a></li>
+                    <li class="nav-item"><a href="" class="nav-link">Register</a></li>
+                </ul>
+            </div>
+        </nav>
+
+    </header>
+
+    <main class="main">
+        {% block main %}
+
+        {% endblock %}
+    </main>
+
+    <footer class="footer">
+
+    </footer>
+    
+</body>
+</html>
