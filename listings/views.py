@@ -43,8 +43,15 @@ def index(request):
     categories =  BusinessCategory.objects.all()
     featured_categories = BusinessCategory.objects.filter(featured=True)
     featured_businesses = Business.objects.filter(featured=True)
+    for featured_business in featured_businesses:
+        featured_business.featured_img = featured_business.business_images.filter(featured_img=True).first()
+
+
+
+
     return render(request, "listings/homepage.html",{
         "cities":cities,
         "categories":categories,
         "featured_categories":featured_categories,
+        "featured_businesses":featured_businesses,
     })

@@ -1,9 +1,16 @@
+html {
+  scrollbar-color: #3d66b7 #f4f4f4;
+  scrollbar-width: thin; }
+
 html, body {
   margin: 0;
   padding: 0; }
 
 body {
   font-family: "Roboto", sans-serif; }
+
+.main {
+  min-height: 2000px; }
 
 * {
   box-sizing: border-box; }
@@ -153,5 +160,59 @@ body {
     font-weight: 300; }
   .featured-listings-article p {
     font-weight: 300; }
+  .featured-listings .featured-listings-fwraper {
+    display: flex;
+    justify-content: center;
+    width: 60%;
+    padding-left: 100px;
+    margin: 40px auto;
+    overflow-x: scroll; }
+    .featured-listings .featured-listings-fwraper p {
+      font-weight: 300;
+      font-size: 0.9rem; }
+    .featured-listings .featured-listings-fwraper .featured_business {
+      flex-basis: 250px;
+      text-align: left;
+      flex-shrink: 0;
+      flex-grow: 0;
+      padding: 10px;
+      background-color: #f9f9f9;
+      margin-bottom: 20px;
+      border-radius: 10px; }
+      .featured-listings .featured-listings-fwraper .featured_business .business-details {
+        display: flex;
+        justify-content: space-between;
+        font-weight: 300; }
+        .featured-listings .featured-listings-fwraper .featured_business .business-details p {
+          margin: 0; }
+          .featured-listings .featured-listings-fwraper .featured_business .business-details p .fa-solid.fa-phone-volume, .featured-listings .featured-listings-fwraper .featured_business .business-details p .fa-solid.fa-location-pin {
+            color: #3d66b7 !important;
+            margin-right: 10px; }
+        .featured-listings .featured-listings-fwraper .featured_business .business-details .city {
+          margin-right: 10px; }
+    .featured-listings .featured-listings-fwraper > *:not(:last-of-type) {
+      margin-right: 20px; }
+    .featured-listings .featured-listings-fwraper .business-title {
+      margin-bottom: 0;
+      line-height: 10px;
+      font-size: 1rem; }
+    .featured-listings .featured-listings-fwraper .business-title, .featured-listings .featured-listings-fwraper .business-desc {
+      font-weight: 300; }
+    .featured-listings .featured-listings-fwraper .business-desc {
+      font-size: 14px; }
+    .featured-listings .featured-listings-fwraper .business_sub-details {
+      border-top: 1px solid #d8d8d8;
+      margin-top: 10px; }
+      .featured-listings .featured-listings-fwraper .business_sub-details .featured_cat {
+        margin: 0;
+        margin-top: 10px;
+        display: flex;
+        justify-content: flex-start; }
+        .featured-listings .featured-listings-fwraper .business_sub-details .featured_cat p {
+          margin: 0;
+          margin-left: 10px; }
+        .featured-listings .featured-listings-fwraper .business_sub-details .featured_cat img {
+          width: 20px;
+          height: 20px; }
 
 /*# sourceMappingURL=app.css.map */

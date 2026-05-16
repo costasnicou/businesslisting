@@ -26,6 +26,7 @@
             <div class="featured_category">
                 <img  src="{{featured_category.cat_photo.url }}" alt="">
                 <p class="cat-name">{{featured_category.cat_name}}</p>
+               
             </div>
         {% endfor %}
     </div>
@@ -38,7 +39,37 @@
     </article>
 
     <div class="featured-listings-fwraper">
-        
+        {% for featured_business in featured_businesses %}
+            <div class="featured_business">
+                <div class="featured_business--img" style="
+                background: linear-gradient(rgba(56, 83, 136, 0.5),rgba(55, 81, 135, 0.5)), url({{featured_business.featured_img.image.url}});
+                width:250px;
+                height: 150px;
+                background-size: cover;
+                background-position: center;
+                opacity: 0.9;
+                border-radius: 5px;">
+
+                </div>
+
+                <h3 class="business-title">{{featured_business.name}}</h3>
+                <p class="business-desc">{{featured_business.desc|truncatewords:7}}</p>
+                <div class="business-details">
+                    <p class="phone"><i class="fa-solid fa-phone-volume" style="color: rgb(0, 0, 0);"></i>{{featured_business.phone}}</p>
+                    <p class="city"><i class="fa-solid fa-location-pin" style="color: rgb(0, 0, 0);"></i>{{featured_business.city}}</p>
+                </div>
+
+                <div class="business_sub-details">
+                    <div class="featured_cat">
+                        {% if featured_business.category.cat_photo %}
+                        <img src="{{featured_business.category.cat_photo.url}}" alt="">
+                        {% endif %}
+                        <p>{{featured_business.category.cat_name}}</p>
+                    </div>
+                </div>
+            </div>
+
+        {% endfor %}
     </div>
    
 </section>

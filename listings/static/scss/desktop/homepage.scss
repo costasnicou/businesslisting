@@ -124,4 +124,89 @@
             font-weight: 300;
         }
     }
+
+    .featured-listings-fwraper{
+        display: flex;
+        justify-content: center;
+        width: 60%;
+        padding-left: 100px;
+        margin: 40px auto;
+        // background-color: rebeccapurple;
+        overflow-x: scroll;
+        p{
+            font-weight: 300;
+            font-size: 0.9rem;
+        }
+        
+        .featured_business{
+            flex-basis: 250px;
+            text-align: left;
+            flex-shrink: 0;
+            flex-grow: 0;
+            padding: 10px;
+            background-color: rgb(249, 249, 249);
+            margin-bottom: 20px;
+           border-radius: 10px;
+            .business-details{
+                display: flex;
+                justify-content: space-between;
+                font-weight: 300;
+
+                p{
+                    margin: 0;
+                    
+                    .fa-solid.fa-phone-volume,.fa-solid.fa-location-pin{
+                        color: rgb(61, 102, 183) !important;
+                        margin-right:10px;
+                    }
+                }
+                .city{
+                    margin-right: 10px;
+                }
+            }
+        }
+
+        & > *:not(:last-of-type){
+            margin-right: 20px;
+        }
+
+        .business-title{
+            margin-bottom: 0;
+            line-height: 10px;
+            font-size: 1rem;
+        }
+
+        .business-title,.business-desc{
+            font-weight: 300;
+           
+            
+        }
+
+        .business-desc{
+            font-size: 14px;
+        }
+
+        .business_sub-details{
+            border-top: 1px solid rgb(216, 216, 216);
+            margin-top: 10px;
+
+            .featured_cat{
+                margin: 0;
+                margin-top: 10px;
+                display: flex;
+                justify-content: flex-start;
+
+                
+                p{
+                    margin: 0;
+                    margin-left: 10px;
+                }
+
+                img{
+                    width: 20px;
+                    height: 20px;
+                }
+            }
+        }
+    }
 }

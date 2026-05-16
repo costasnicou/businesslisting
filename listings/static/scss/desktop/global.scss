@@ -1,9 +1,18 @@
+html{
+    scrollbar-color: rgb(61, 102, 183) rgb(244, 244, 244);
+    scrollbar-width: thin;
+}
 html,body{
     margin: 0;
     padding: 0;
 }
+
+
 body{
     font-family: "Roboto", sans-serif;
+}
+.main{
+    min-height: 2000px;
 }
 *{
     box-sizing: border-box;
