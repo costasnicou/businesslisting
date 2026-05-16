@@ -9,6 +9,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
 import datetime
+from django.urls import reverse
 from .models import *
 # Create your views here.
 
@@ -41,6 +42,7 @@ def index(request):
     cities = City.objects.all()
     categories =  BusinessCategory.objects.all()
     featured_categories = BusinessCategory.objects.filter(featured=True)
+    featured_businesses = Business.objects.filter(featured=True)
     return render(request, "listings/homepage.html",{
         "cities":cities,
         "categories":categories,

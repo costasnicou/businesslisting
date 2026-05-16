@@ -39,20 +39,7 @@ class Business(models.Model):
     )
     # use for map location
     address = models.CharField(max_length=255)
-    latitude = models.DecimalField(
-        max_digits=9,
-        decimal_places=6,
-        null=True,
-        blank=True
-    )
-
-    longitude = models.DecimalField(
-        max_digits=9,
-        decimal_places=6,
-        null=True,
-        blank=True
-    )
-
+    
 
     def __str__(self):
         return self.name
@@ -117,7 +104,7 @@ class BusinessImage(models.Model):
     business  = models.ForeignKey(Business,on_delete=models.CASCADE,related_name="business_images")
     image = models.ImageField(upload_to="business_images")
     uploaded_time = models.DateTimeField(auto_now_add=True)
-
+    featured_img = models.BooleanField(default=False)
     def __str__(self):
         return f"Image for {self.business.name}"
 
@@ -129,6 +116,8 @@ class BusinessHours(models.Model):
         ('wed', 'Wednesday'),
         ('thu', 'Thursday'),
         ('fri', 'Friday'),
+        ('sat', 'Saturday'),
+        ('sun', 'Sunday'),
     ]
     business = models.ForeignKey(Business, on_delete=models.CASCADE, related_name='hours')
     day = models.CharField(max_length=3, choices=weekdays)

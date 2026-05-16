@@ -43,11 +43,17 @@
                    
 
                 </ul>
-
+                {% if user.is_authenticated %}
+                <ul class="login-status">
+                    <li class="nav-item"><a href="{% url 'logout' %}" class="nav-link">Logout</a></li>
+                    <!-- <li class="nav-item"><a href="" class="nav-link">Register</a></li> -->
+                </ul>
+                {% else %}
                 <ul class="login-status">
                     <li class="nav-item"><a href="" class="nav-link">Login</a></li>
                     <li class="nav-item"><a href="" class="nav-link">Register</a></li>
                 </ul>
+                {% endif %}
             </div>
         </nav>
 
@@ -62,6 +68,8 @@
     <footer class="footer">
 
     </footer>
-    
+    {% block scripts %}
+
+    {% endblock %}
 </body>
 </html>

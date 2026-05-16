@@ -1,4 +1,5 @@
 {% extends 'listings/base.html' %}
+{% load static %}
 {% block title %}  Homepage {% endblock %}
 {% block main %}
 <div class="hm-cover">
@@ -23,10 +24,28 @@
     <div class="featured-categories-fwraper">
         {% for featured_category in featured_categories %}
             <div class="featured_category">
-                <img src="{{featured_category.cat_photo.url }}" alt="">
+                <img  src="{{featured_category.cat_photo.url }}" alt="">
                 <p class="cat-name">{{featured_category.cat_name}}</p>
             </div>
         {% endfor %}
     </div>
 </section>
+
+<section class="featured-listings">
+    <article class="featured-listings-article">
+        <h2>The most popular things to Do in the City</h2>
+        <p>Discover some of the most popular listings</p>
+    </article>
+
+    <div class="featured-listings-fwraper">
+        
+    </div>
+   
+</section>
+{% endblock %}
+
+
+
+{% block scripts %}
+    <script src="{% static 'js/cat_icon_change.js' %}"></script>
 {% endblock %}

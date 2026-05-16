@@ -88,7 +88,7 @@
             border-radius: 10px;
 
             &:hover{
-                background-color: #234DD4;
+                background-color: rgb(61, 102, 183);
 
                 p{
                     color: white;
@@ -109,4 +109,19 @@
     }
 
 
+}
+
+.featured-listings{
+    // background-color: red;
+    text-align: center;
+    margin-top: -40px;
+    &-article{
+        h2{
+            font-size: 25px;
+            font-weight: 300;
+        }
+        p{
+            font-weight: 300;
+        }
+    }
 }
