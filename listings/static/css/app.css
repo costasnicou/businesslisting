@@ -9,9 +9,6 @@ html, body {
 body {
   font-family: "Roboto", sans-serif; }
 
-.main {
-  min-height: 2000px; }
-
 * {
   box-sizing: border-box; }
 
@@ -23,7 +20,9 @@ body {
   background-color: white;
   top: 0;
   border-top: 20px solid #3d66b7;
-  z-index: 100; }
+  z-index: 100;
+  -webkit-box-shadow: 5px 1px 17px 4px rgba(0, 0, 0, 0.16);
+  box-shadow: 5px 1px 17px 4px rgba(0, 0, 0, 0.16); }
   .navigation-wraper {
     display: flex;
     justify-content: space-between;
@@ -214,5 +213,37 @@ body {
         .featured-listings .featured-listings-fwraper .business_sub-details .featured_cat img {
           width: 20px;
           height: 20px; }
+
+.register-fwraper {
+  display: flex;
+  justify-content: center;
+  height: 90vh;
+  margin-top: 92px;
+  position: relative;
+  z-index: 1; }
+  .register-fwraper .register-bg {
+    width: 60%;
+    background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url(../imgs/register-bg-2.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 91vh; }
+  .register-fwraper .register-content {
+    width: 40%;
+    background-color: #fdfdfd; }
+    .register-fwraper .register-content-wraper {
+      width: 60%;
+      margin: 80px auto 0 auto; }
+      .register-fwraper .register-content-wraper form .form-group .form-control {
+        width: 100%;
+        padding: 10px; }
+      .register-fwraper .register-content-wraper form .form-group:not(:last-of-type) {
+        margin-bottom: 20px; }
+      .register-fwraper .register-content-wraper form .btnlogreg {
+        background-color: #4471cb;
+        border-radius: 10px;
+        padding: 10px 20px;
+        color: white;
+        border: none;
+        margin-top: 20px; }
 
 /*# sourceMappingURL=app.css.map */

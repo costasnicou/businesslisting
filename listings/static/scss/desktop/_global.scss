@@ -11,9 +11,7 @@ html,body{
 body{
     font-family: "Roboto", sans-serif;
 }
-.main{
-    min-height: 2000px;
-}
+
 *{
     box-sizing: border-box;
 }
@@ -28,7 +26,8 @@ body{
     top: 0;
     border-top: 20px solid rgb(61, 102, 183);
     z-index: 100;
-   
+    -webkit-box-shadow: 5px 1px 17px 4px rgba(0,0,0,0.16); 
+    box-shadow: 5px 1px 17px 4px rgba(0,0,0,0.16);
    
 
     &-wraper{

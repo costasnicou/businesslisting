@@ -1,0 +1,53 @@
+.register-fwraper{
+    display: flex;
+    justify-content: center;
+    height: 90vh;
+    margin-top: 92px;
+    position: relative;
+    z-index: 1;
+
+    .register-bg{
+        width: 60%;
+        background: linear-gradient(rgba(0,0,0,.1),rgba(0,0,0,.1)), url(../imgs/register-bg-2.jpg);
+        background-size: cover;
+        background-position: center;
+        height: 91vh;
+
+
+    }
+
+    .register-content{
+        width: 40%;
+        // width: 90%;
+        // margin
+        background-color: rgb(253, 253, 253);
+        &-wraper{
+            width: 60%;
+            margin: 80px auto 0 auto;
+            // margin-top: 20px;
+
+            form{
+                .form-group .form-control{
+                    width: 100%;
+                    padding: 10px;
+                   
+                }
+
+                .form-group{
+                     &:not(:last-of-type){
+                        margin-bottom: 20px;
+                    }
+                }
+
+                .btnlogreg{
+                    background-color: rgb(68, 113, 203);
+                    border-radius: 10px;
+                    padding:10px 20px;
+                    color: white;
+                    border: none;
+                    margin-top: 20px;
+                }
+            }
+        }
+    }
+}

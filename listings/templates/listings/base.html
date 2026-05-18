@@ -18,7 +18,7 @@
                 <img src="{% static 'imgs/logo.png' %}" alt="" class="logo">
                 <ul class="nav-links">
 
-                    <li class="nav-item"><a class="nav-link" href="">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'index' %}">Home</a></li>
                     <li class="nav-item dropdown"><span class="nav-link">Cities</span>
                         <div class="dropdown-content">
                             <ul class="dropdown-menu">
@@ -51,7 +51,7 @@
                 {% else %}
                 <ul class="login-status">
                     <li class="nav-item"><a href="" class="nav-link">Login</a></li>
-                    <li class="nav-item"><a href="" class="nav-link">Register</a></li>
+                    <li class="nav-item"><a href="{% url 'register' %}" class="nav-link">Register</a></li>
                 </ul>
                 {% endif %}
             </div>
