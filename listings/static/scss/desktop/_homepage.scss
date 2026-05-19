@@ -65,11 +65,12 @@
 .featured-categories{
    
    
-
+     background-color: rgb(250, 250, 250);
+       background-color: rgb(67, 99, 152);
     .featured-categories-fwraper{
         display: flex;
         justify-content: center;
-        background-color: white;
+        background-color: whitesmoke;
         padding: 20px;
         position: relative;
         bottom: 80px;
@@ -80,15 +81,17 @@
         z-index: 10;
 
         .featured_category{
-            background-color: whitesmoke;
+            background-color: white;
             text-align: center;
             width: 120px;
             height: 120px;
             padding: 10px;
             border-radius: 10px;
-
+            border: 1px solid  rgb(61, 102, 183);
+            transition: all .4s;
             &:hover{
                 background-color: rgb(61, 102, 183);
+        
 
                 p{
                     color: white;
@@ -115,13 +118,22 @@
     // background-color: red;
     text-align: center;
     margin-top: -40px;
+    background-color: rgb(250, 250, 250);
+   
+    background-color: rgb(82, 114, 167);
+    // background-color: whitesmoke;
+  
+   
+    padding: 40px 0;
     &-article{
         h2{
             font-size: 25px;
             font-weight: 300;
+             color: white;
         }
         p{
             font-weight: 300;
+             color: white;
         }
     }
 
@@ -129,7 +141,7 @@
         display: flex;
         justify-content: center;
         width: 60%;
-        padding-left: 100px;
+        padding-left: 220px;
         margin: 40px auto;
         // background-color: rebeccapurple;
         overflow-x: scroll;
@@ -139,14 +151,17 @@
         }
         
         .featured_business{
-            flex-basis: 250px;
+            flex-basis: 300px;
             text-align: left;
             flex-shrink: 0;
             flex-grow: 0;
             padding: 10px;
             background-color: rgb(249, 249, 249);
+            background-color: white;
             margin-bottom: 20px;
-           border-radius: 10px;
+            border-radius: 10px;
+            -webkit-box-shadow: 1px 1px 20px 6px rgba(0,0,0,0.22); 
+            box-shadow: 1px 1px 20px 6px rgba(0,0,0,0.22);
             .business-details{
                 display: flex;
                 justify-content: space-between;
@@ -158,6 +173,7 @@
                     .fa-solid.fa-phone-volume,.fa-solid.fa-location-pin{
                         color: rgb(61, 102, 183) !important;
                         margin-right:10px;
+                        // font-size: 20px;
                     }
                 }
                 .city{
@@ -189,22 +205,54 @@
         .business_sub-details{
             border-top: 1px solid rgb(216, 216, 216);
             margin-top: 10px;
-
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             .featured_cat{
                 margin: 0;
                 margin-top: 10px;
                 display: flex;
                 justify-content: flex-start;
-
+                align-items: center;
                 
                 p{
                     margin: 0;
-                    margin-left: 10px;
+                    margin-left: 5px;
                 }
 
                 img{
                     width: 20px;
                     height: 20px;
+                }
+            }
+
+            &-right{
+                position: relative;
+                .tooltip{
+                   display: none;
+                }
+
+        
+                a i.fa-solid.fa-eye{
+                    color: rgb(61, 102, 183) !important;
+                    margin-right:10px;
+                    margin-top: 10px;
+                }
+
+                a:hover + .tooltip{
+                    display: inline-block;
+                    position: absolute;
+                    background-color: #1d9aeeee;
+                    background-color: rgb(215, 141, 2);
+                    color: white;
+                    width: 67px;
+                    text-align: center;
+                    right: -5px;
+                    padding: 5px;
+                    border-radius: 5px;
+                    font-size: 10px;
+                    bottom: 9px;
+                                    
                 }
             }
         }

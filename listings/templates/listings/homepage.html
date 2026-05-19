@@ -43,8 +43,8 @@
             <div class="featured_business">
                 <div class="featured_business--img" style="
                 background: linear-gradient(rgba(56, 83, 136, 0.5),rgba(55, 81, 135, 0.5)), url({{featured_business.featured_img.image.url}});
-                width:250px;
-                height: 150px;
+                width:300px;
+                height: 200px;
                 background-size: cover;
                 background-position: center;
                 opacity: 0.9;
@@ -65,6 +65,11 @@
                         <img src="{{featured_business.category.cat_photo.url}}" alt="">
                         {% endif %}
                         <p>{{featured_business.category.cat_name}}</p>
+                    </div>
+
+                    <div class="business_sub-details-right">
+                        <a href=""><i class="fa-solid fa-eye"></i></a>
+                        <p class="tooltip">View More</p>
                     </div>
                 </div>
             </div>

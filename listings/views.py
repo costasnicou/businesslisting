@@ -30,7 +30,12 @@ def login_view(request):
                 "message": "Invalid username and/or password."
             })
     else:
-        return render(request, "listings/login.html")
+        cities = City.objects.all()
+        categories =  BusinessCategory.objects.all()
+        return render(request, "listings/login.html",{
+            "cities":cities,
+            "categories":categories,
+        })
 
 
 def logout_view(request):

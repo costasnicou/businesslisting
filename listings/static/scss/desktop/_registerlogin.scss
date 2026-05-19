@@ -1,4 +1,4 @@
-.register-fwraper{
+.registerlogin-fwraper{
     display: flex;
     justify-content: center;
     height: 90vh;
@@ -16,7 +16,15 @@
 
     }
 
-    .register-content{
+    .login-bg{
+        width: 60%;
+        background: linear-gradient(rgba(0, 0, 0, .1),rgba(0,0,0,.2)), url(../imgs/login-bg.png);
+        background-size: cover;
+        background-position: center;
+        height: 91vh;
+    }
+
+    .registerlogin-content{
         width: 40%;
         // width: 90%;
         // margin
@@ -46,6 +54,11 @@
                     color: white;
                     border: none;
                     margin-top: 20px;
+                    transition: all .4s;
+
+                    &:hover{
+                        background-color: darken(rgb(68, 113, 203), 10%);
+                    }
                 }
             }
         }

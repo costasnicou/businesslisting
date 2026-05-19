@@ -1,5 +1,5 @@
 html{
-    scrollbar-color: rgb(61, 102, 183) rgb(244, 244, 244);
+    scrollbar-color: whitesmoke rgb(26, 44, 60);
     scrollbar-width: thin;
 }
 html,body{
@@ -49,14 +49,15 @@ body{
 
             .nav-link{
                 text-decoration: none;
-                color:rgb(68, 113, 203);
+                color:rgb(116, 116, 116);
                 &:link,&:visited{
                     color:rgb(68, 113, 203);
+                    color:rgb(116, 116, 116);
                     
                 }
 
                 &:hover{
-                    color: darken(rgb(68, 113, 203),12%);
+                    color:rgb(68, 113, 203);   
                 }
             }
 
@@ -103,9 +104,9 @@ body{
        
         .dropdown-link{
             text-decoration: none;
-            color:rgb(68, 113, 203);
+            color:rgb(116, 116, 116);
             &:link,&:visited{
-                color:rgb(68, 113, 203);
+                color:rgb(116, 116, 116);
                 
             }
             
@@ -113,7 +114,7 @@ body{
 
          &:hover .dropdown-link{
            
-            color: darken(rgb(68, 113, 203),12%);
+            color:rgb(68, 113, 203);
         
            
         }
