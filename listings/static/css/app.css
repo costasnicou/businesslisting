@@ -253,6 +253,91 @@ body {
           font-size: 10px;
           bottom: 9px; }
 
+.featured-cities {
+  padding: 40px 0; }
+  .featured-cities-article {
+    text-align: center;
+    font-weight: 300; }
+    .featured-cities-article h3 {
+      font-size: 25px;
+      font-weight: 300; }
+  .featured-cities .cities-grid {
+    display: grid;
+    width: 50%;
+    margin: 0 auto;
+    padding: 20px 0;
+    grid-template-columns: 33.33% 33.33% 33.33%;
+    grid-template-rows: 300px 300px;
+    grid-gap: 10px; }
+    .featured-cities .cities-grid .city-item {
+      border-radius: 10px;
+      position: relative; }
+      .featured-cities .cities-grid .city-item .city-item-img {
+        display: block;
+        transition: all .9s !important; }
+      .featured-cities .cities-grid .city-item-1 {
+        grid-column-start: 1;
+        grid-column-end: 3; }
+        .featured-cities .cities-grid .city-item-1 .city-item-img:hover {
+          background: linear-gradient(rgba(56, 83, 136, 0.5), rgba(55, 81, 135, 0.5)), url(../../../../media/city_images/limassol.webp) !important;
+          width: 100% !important;
+          height: 100% !important;
+          background-repeat: no-repeat !important;
+          background-size: cover !important;
+          background-position: center !important;
+          border-radius: 5px !important; }
+      .featured-cities .cities-grid .city-item-2 {
+        grid-column-start: 3;
+        grid-column-end: 4; }
+        .featured-cities .cities-grid .city-item-2 .city-item-img:hover {
+          background: linear-gradient(rgba(56, 83, 136, 0.5), rgba(55, 81, 135, 0.5)), url(../../../../media/city_images/paphos_no0ksHS.webp) !important;
+          width: 100% !important;
+          height: 100% !important;
+          background-repeat: no-repeat !important;
+          background-size: cover !important;
+          background-position: center !important;
+          border-radius: 5px !important; }
+      .featured-cities .cities-grid .city-item-3 {
+        grid-row-start: 2;
+        grid-row-end: 3;
+        grid-column-start: 1;
+        grid-column-end: 2; }
+        .featured-cities .cities-grid .city-item-3 .city-item-img:hover {
+          background: linear-gradient(rgba(56, 83, 136, 0.5), rgba(55, 81, 135, 0.5)), url(../../../../media/city_images/larnaka.webp) !important;
+          width: 100% !important;
+          height: 100% !important;
+          background-repeat: no-repeat !important;
+          background-size: cover !important;
+          background-position: center !important;
+          border-radius: 5px !important; }
+      .featured-cities .cities-grid .city-item-4 {
+        grid-row-start: 2;
+        grid-row-end: 3;
+        grid-column-start: 2;
+        grid-column-end: 4; }
+        .featured-cities .cities-grid .city-item-4 .city-item-img:hover {
+          background: linear-gradient(rgba(56, 83, 136, 0.5), rgba(55, 81, 135, 0.5)), url(../../../../media/city_images/nicosia.webp) !important;
+          width: 100% !important;
+          height: 100% !important;
+          background-repeat: no-repeat !important;
+          background-size: cover !important;
+          background-position: center !important;
+          border-radius: 5px !important; }
+      .featured-cities .cities-grid .city-item .city-link {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        inset: 0;
+        padding: 10px 20px;
+        transition: all .4s; }
+        .featured-cities .cities-grid .city-item .city-link:link, .featured-cities .cities-grid .city-item .city-link:visited {
+          color: white;
+          text-decoration: none;
+          font-weight: bold;
+          background-color: rgba(27, 41, 66, 0.248); }
+        .featured-cities .cities-grid .city-item .city-link:hover {
+          background-color: rgba(0, 0, 0, 0); }
+
 .registerlogin-fwraper {
   display: flex;
   justify-content: center;
