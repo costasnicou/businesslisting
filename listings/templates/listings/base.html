@@ -66,6 +66,51 @@
     </main>
 
     <footer class="footer">
+        <div class="footer-fwraper">
+            <div class="area">
+                <h4>Contact Us</h4>
+                <div class="area-content">
+                    <p><i class="fa-solid fa-location-dot"></i>Filias 6 Arakapas Limassol, 4563 Cyprus</p>
+                    <p><i class="fa-solid fa-phone"></i>+357 96916096</p>
+                    <p><i class="fa-solid fa-envelope"></i>test@example.com</p>
+                </div>
+            </div>
+
+            <div class="area">
+                <h4>Company Pages</h4>
+                
+                <ul class="footer-pages">
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">How it works</a></li>
+                    <li><a href="#">Articles & Tips</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                </ul>
+            
+            </div>
+
+            <div class="area">
+                <h4>Discover</h4>
+                <ul class="footer-pages">
+                    {% for city in cities %}
+                        <li><a href="">{{city.city_name}}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <div class="area">
+                <h4>Newsletter</h4>
+                <div class="area-content">
+                    <p>We don't send spam so don't worry</p>
+                    <form action="" class="newsletter">
+                        <input type="email" name="" id="" placeholder="Enter Your Email">
+                        <input type="submit" value="Subscribe">
+                    </form>
+                </div>
+            </div>
+
+        </div>
 
     </footer>
     {% block scripts %}

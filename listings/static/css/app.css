@@ -12,6 +12,13 @@ body {
 * {
   box-sizing: border-box; }
 
+section .section-intro {
+  text-align: center;
+  font-weight: 300; }
+  section .section-intro h3 {
+    font-size: 25px;
+    font-weight: 300; }
+
 .navigation {
   display: flex;
   padding: 10px 0;
@@ -255,12 +262,6 @@ body {
 
 .featured-cities {
   padding: 40px 0; }
-  .featured-cities-article {
-    text-align: center;
-    font-weight: 300; }
-    .featured-cities-article h3 {
-      font-size: 25px;
-      font-weight: 300; }
   .featured-cities .cities-grid {
     display: grid;
     width: 50%;
@@ -337,6 +338,131 @@ body {
           background-color: rgba(27, 41, 66, 0.248); }
         .featured-cities .cities-grid .city-item .city-link:hover {
           background-color: rgba(0, 0, 0, 0); }
+
+.workhow {
+  background-color: whitesmoke;
+  padding: 40px 0; }
+  .workhow .workhow-fwraper {
+    display: flex;
+    justify-content: center;
+    width: 70%;
+    margin: 40px auto; }
+    .workhow .workhow-fwraper .explanation {
+      text-align: center;
+      background-color: white;
+      width: 300px;
+      padding: 40px;
+      border-radius: 8px;
+      transition: all .4s; }
+      .workhow .workhow-fwraper .explanation h3, .workhow .workhow-fwraper .explanation p {
+        font-weight: 300; }
+      .workhow .workhow-fwraper .explanation i {
+        font-size: 60px;
+        color: #3d66b7;
+        margin-bottom: 20px; }
+    .workhow .workhow-fwraper .explanation:hover {
+      background-color: #3d66b7;
+      color: white; }
+      .workhow .workhow-fwraper .explanation:hover i {
+        color: white; }
+    .workhow .workhow-fwraper .explanation:not(:last-of-type) {
+      margin-right: 50px; }
+
+.testimonials {
+  padding: 40px 0; }
+  .testimonials-fwraper {
+    display: flex;
+    justify-content: center;
+    width: 85%;
+    margin: 40px auto; }
+    .testimonials-fwraper .testimonial {
+      width: 33%;
+      text-align: center;
+      background-color: #fbfbfb;
+      padding: 20px;
+      border-radius: 8px;
+      transition: all .4s; }
+      .testimonials-fwraper .testimonial img {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%; }
+      .testimonials-fwraper .testimonial h3, .testimonials-fwraper .testimonial h4, .testimonials-fwraper .testimonial p {
+        font-weight: 300; }
+      .testimonials-fwraper .testimonial h3 {
+        margin-bottom: 0; }
+      .testimonials-fwraper .testimonial h4 {
+        margin-top: 0; }
+      .testimonials-fwraper .testimonial p {
+        color: #5d5d5d; }
+    .testimonials-fwraper .testimonial:not(:last-of-type) {
+      margin-right: 40px; }
+    .testimonials-fwraper .testimonial:hover {
+      background-color: whitesmoke; }
+      .testimonials-fwraper .testimonial:hover p {
+        color: #383838; }
+
+.cta {
+  padding: 40px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #5272a7;
+  min-height: 200px; }
+  .cta-fwraper {
+    width: 75%;
+    margin: 0 auto;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; }
+    .cta-fwraper .cta-content p {
+      width: 80%; }
+  .cta-btn:link, .cta-btn:visited {
+    background-color: white;
+    padding: 15px 35px;
+    text-decoration: none;
+    border-radius: 8px;
+    color: #5272a7;
+    transition: all .4s; }
+  .cta-btn:hover {
+    transform: translateY(-2.5px); }
+
+.footer {
+  background-color: #4f6ea2;
+  background-color: #414141;
+  padding: 40px 0; }
+  .footer-fwraper {
+    width: 75%;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    color: #ededed; }
+  .footer .area .footer-pages {
+    list-style: none;
+    padding: 0; }
+    .footer .area .footer-pages li:not(:last-of-type) {
+      margin-bottom: 10px; }
+    .footer .area .footer-pages li a:link, .footer .area .footer-pages li a:visited {
+      text-decoration: none;
+      color: white; }
+  .footer .area .area-content form {
+    background-color: white;
+    padding: 15px;
+    border-radius: 4px; }
+    .footer .area .area-content form input[type="email"] {
+      padding: 8px;
+      border: none; }
+    .footer .area .area-content form input[type="submit"] {
+      padding: 10px 20px;
+      background-color: #5272a7;
+      border: none;
+      color: white;
+      border-radius: 4px; }
+  .footer .area .area-content p i {
+    color: #e8e8e8;
+    font-size: 15px;
+    margin-right: 10px; }
 
 .registerlogin-fwraper {
   display: flex;
