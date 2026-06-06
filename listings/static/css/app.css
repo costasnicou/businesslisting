@@ -1,5 +1,5 @@
 html {
-  scrollbar-color: whitesmoke #1a2c3c;
+  scrollbar-color: #2667a8 whitesmoke;
   scrollbar-width: thin; }
 
 html, body {
@@ -169,14 +169,13 @@ section .section-intro {
   margin-top: -40px;
   background-color: #fafafa;
   background-color: #5272a7;
+  background-color: whitesmoke;
   padding: 40px 0; }
   .featured-listings-article h2 {
     font-size: 25px;
-    font-weight: 300;
-    color: white; }
+    font-weight: 300; }
   .featured-listings-article p {
-    font-weight: 300;
-    color: white; }
+    font-weight: 300; }
   .featured-listings .featured-listings-fwraper {
     display: flex;
     justify-content: center;
@@ -197,8 +196,7 @@ section .section-intro {
       background-color: white;
       margin-bottom: 20px;
       border-radius: 10px;
-      -webkit-box-shadow: 1px 1px 20px 6px rgba(0, 0, 0, 0.22);
-      box-shadow: 1px 1px 20px 6px rgba(0, 0, 0, 0.22); }
+      border: 1px solid #5f79ad; }
       .featured-listings .featured-listings-fwraper .featured_business .business-details {
         display: flex;
         justify-content: space-between;
