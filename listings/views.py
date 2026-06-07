@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.contrib.auth import authenticate, login, logout
 from django.db import IntegrityError
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect,JsonResponse
 from django.shortcuts import render
 from .models import User
 from django.http import JsonResponse
@@ -90,4 +90,50 @@ def index(request):
         "categories":categories,
         "featured_categories":featured_categories,
         "featured_businesses":featured_businesses,
+    })
+
+
+def all_listings(request):
+    cities = City.objects.all()
+    categories =  BusinessCategory.objects.all()
+    businesses = Business.objects.all()
+
+
+    # start and end of  listings
+    start = int(request.GET.get("start") or 0)
+    end = int(request.GET.get("end") or (start +9))
+
+    # generate listings
+    data = []
+    for business in businesses:
+        business.featured_img = business.business_images.filter(featured_img=True).first()
+    for i in range(start,end):
+        data.append(businesses[i])
+    # print(data)
+    if request.GET:
+       # Return list of posts
+        return JsonResponse({
+            "businesses": [
+                {
+                    "id": business.id,
+                    "title": business.name,
+                    "desc": business.desc,
+                    "city": business.city.city_name if business.city else None,
+                    "category": business.category.cat_name if business.category else None,
+                    "cat_photo":business.category.cat_photo.url
+                        if business.category.cat_photo
+                        else None,
+                    "img": business.featured_img.image.url
+                        if business.featured_img and business.featured_img.image
+                        else None,
+                    "phone":business.phone,
+                }
+                for business in data
+            ]
+        })
+
+    return render(request, "listings/all-listings.html",{
+        "cities":cities,
+        "categories":categories,
+        "businesses":data,
     })

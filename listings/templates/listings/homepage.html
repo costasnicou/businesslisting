@@ -40,8 +40,8 @@
 
     <div class="featured-listings-fwraper">
         {% for featured_business in featured_businesses %}
-            <div class="featured_business">
-                <div class="featured_business--img" style="
+            <div class="business">
+                <div class="business--img" style="
                 background: linear-gradient(rgba(56, 83, 136, 0.5),rgba(55, 81, 135, 0.5)), url({{featured_business.featured_img.image.url}});
                 width:300px;
                 height: 200px;
@@ -76,6 +76,8 @@
 
         {% endfor %}
     </div>
+
+    <a href="{% url 'all_listings' %}" class="view-all-listings">View All</a>
 
    
 </section>

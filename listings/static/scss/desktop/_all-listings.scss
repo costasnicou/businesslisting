@@ -1,0 +1,242 @@
+.all-listings-cover{
+    background: linear-gradient(45deg,rgba(51, 59, 74, 0.4),rgba(59, 69, 87, 0.6)),url(../imgs/cover-all-listings.jpg);
+    height: 60vh;
+    background-position: center;
+    background-size: cover;
+    margin-top: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    position: relative;
+    z-index: 1;
+    &-content{
+        // position: relative;
+        // bottom: 25px;
+        width: 90%;
+        margin: 0 auto;
+        // z-index: 1;
+        margin-bottom: 25px;
+      
+        h1{
+            font-size: 3.5rem;
+            line-height: 1.5rem;
+        }
+
+        h2{
+            font-size: 1.4rem;
+            line-height: 1.5rem;
+        }
+
+        .form-wraper{
+            width: 55%;
+            background-color: white;
+            border-radius: 50px;
+            margin: 0 auto;
+            height: 60px;
+            margin-top: 40px;
+            -webkit-box-shadow: 5px 5px 17px 4px rgba(0,0,0,0.26); 
+            box-shadow: 5px 5px 17px 4px rgba(0,0,0,0.26);
+        }
+    }
+
+}
+
+.all-businesses{
+    text-align: center;
+    padding: 40px 0;
+    &-section-wraper{
+        display: flex;
+        justify-content: space-evenly;
+        width: 70%;
+        margin: 0 auto;
+
+        .aside-nav{
+            width: 20%;
+            margin-top: 20px;
+            text-align: left;
+            // margin-left: 50px;
+            position: relative;
+           
+            top: 25%;
+
+            left: 50px;
+           
+            .fixed-aside-nav{
+                position: sticky;
+                top: 150px;
+            }
+            h3{
+                font-weight: 300;
+            }
+
+
+            & > *:not(:last-of-type){
+                margin-bottom: 40px;
+            }
+
+            .aside-form-widget{
+                // margin-bottom: 20px;
+            }
+
+            .aside-city-pages{
+                //  margin-top: 20px;
+                .aside-city-pages-menu{
+                    padding:0;
+                    list-style: none;
+                   
+                    li{
+                        margin-left: 10px;
+                    }
+
+                    li:not(:last-of-type){
+                        margin-bottom: 10px;
+                    }
+
+                    li a:link,li a:visited{
+                        text-decoration: none;
+                        color: rgb(73, 73, 73);
+                        margin-right: 10px;
+
+                    }
+
+                    li a:hover{
+                        color:rgb(68, 113, 203);
+                    }
+                }
+            }
+
+        }
+
+
+
+        .all-businesses-main-content{
+             width: 80%;
+            .all-businesses-frwraper{
+                display: flex;
+                justify-content: center;
+               
+                margin: 20px auto;
+                flex-wrap: wrap;
+
+                .business{
+                    flex-basis: 300px;
+                    text-align: left;
+                    margin: 10px;
+                    padding: 10px;
+                    background-color: rgb(249, 249, 249);
+                    background-color: white;
+                    margin-bottom: 20px;
+                    border-radius: 10px;
+                    border: 1px solid  rgb(189, 189, 189);
+                    .business-details{
+                        display: flex;
+                        justify-content: space-between;
+                        font-weight: 300;
+
+                        p{
+                            margin: 0;
+                            
+                            .fa-solid.fa-phone-volume,.fa-solid.fa-location-pin{
+                                color: rgb(61, 102, 183) !important;
+                                margin-right:10px;
+                                // font-size: 20px;
+                            }
+                        }
+                        .city{
+                            margin-right: 10px;
+                        }
+                    }
+
+                    .business-title{
+                        margin-bottom: 0;
+                        line-height: 10px;
+                        font-size: 1rem;
+                    }
+
+                    .business-title,.business-desc{
+                        font-weight: 300;
+                    
+                        
+                    }
+
+                    .business-desc{
+                        font-size: 14px;
+                    }
+
+                    .business_sub-details{
+                        border-top: 1px solid rgb(216, 216, 216);
+                        margin-top: 10px;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        .featured_cat{
+                            margin: 0;
+                            margin-top: 10px;
+                            display: flex;
+                            justify-content: flex-start;
+                            align-items: center;
+                            
+                            p{
+                                margin: 0;
+                                margin-left: 5px;
+                            }
+
+                            img{
+                                width: 20px;
+                                height: 20px;
+                            }
+                        }
+
+                        &-right{
+                            position: relative;
+                            .tooltip{
+                            display: none;
+                            }
+
+                    
+                            a i.fa-solid.fa-eye{
+                                color: rgb(61, 102, 183) !important;
+                                margin-right:10px;
+                                margin-top: 10px;
+                            }
+
+                            a:hover + .tooltip{
+                                display: inline-block;
+                                position: absolute;
+                                background-color: #1d9aeeee;
+                                background-color: rgb(215, 141, 2);
+                                color: white;
+                                width: 67px;
+                                text-align: center;
+                                right: -5px;
+                                padding: 5px;
+                                border-radius: 5px;
+                                font-size: 10px;
+                                bottom: 9px;
+                                                
+                            }
+                        }
+                    }
+
+                    
+                }
+
+            }
+
+            .load-more{
+                padding: 10px 20px;
+                background-color: rgb(82, 114, 167);
+                border: none;
+                color: white;
+                border-radius: 4px;
+
+                &:hover{
+                    background-color: darken(rgb(82, 114, 167),5%);
+                }
+            }
+        }
+    }
+}

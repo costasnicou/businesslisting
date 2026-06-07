@@ -1,5 +1,5 @@
 html{
-    scrollbar-color: rgb(38, 103, 168) whitesmoke;
+    scrollbar-color: rgb(38, 103, 168) rgb(209, 209, 209);
     scrollbar-width: thin;
 }
 html,body{
@@ -15,7 +15,9 @@ body{
 *{
     box-sizing: border-box;
 }
-
+.main{
+    min-height: 90vh;
+}
 section{
      .section-intro{
         text-align: center;
@@ -138,4 +140,68 @@ section{
 .dropdown:hover .dropdown-content {
   display: block;
   z-index: 100;
+}
+
+
+
+.footer{
+    background-color: darken(rgb(82, 114, 167),1.5%);
+    background-color: rgb(65, 65, 65);
+    padding: 40px 0;
+    &-fwraper{
+        width: 75%;
+        display: flex;
+        justify-content: space-between;
+        margin: 0 auto;
+        color: rgb(237, 237, 237);
+    }
+
+    .area{
+        .footer-pages{
+            list-style: none;
+            padding: 0;
+
+            li:not(:last-of-type){
+                margin-bottom: 10px;
+            }
+            li a:link,li a:visited{
+                text-decoration: none;
+                color: white;
+              
+            }
+
+         
+        }
+
+        .area-content{
+
+            form{
+                background-color: white;
+                padding: 15px;
+                border-radius: 4px;
+                input[type="email"]{
+                    padding: 8px;
+                    border: none;
+                }
+                input[type="submit"]{
+                    padding: 10px 20px;
+                    background-color: rgb(82, 114, 167);
+                    border: none;
+                    color: white;
+                    border-radius: 4px;
+
+                    &:hover{
+                        background-color: darken(rgb(82, 114, 167),5%);
+                    }
+                }
+            }
+
+            p i{
+                color: rgb(232, 232, 232);
+                font-size: 15px;
+                margin-right: 10px;
+
+            }
+        }
+    }
 }

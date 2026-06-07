@@ -1,0 +1,101 @@
+{% extends 'listings/base.html' %}
+{% load static %}
+{% block title %}  Homepage {% endblock %}
+{% block main %}
+
+<div class="all-listings-cover">
+    <div class="all-listings-cover-content">
+        <hgroup>
+            <h1>The Perfect Place is Waiting for You</h1>
+            <h2>Find great places to stay, eat, shop or visit from local experts.</h2>
+        </hgroup>
+
+        <div class="form-wraper">
+
+        </div>
+    </div>
+</div>
+
+<section class="all-businesses">
+    <div class="all-businesses-section-wraper">
+        <aside class="aside-nav">
+            <!-- form to filter by category -->
+            <div class="fixed-aside-nav">
+
+            
+                <div class="aside-form-widget">
+                    <h3>Filter By Category</h3>
+                    <form action="">
+                        <!-- select box -->
+
+                    </form>
+                
+                </div>           
+            
+
+                <!-- cities pages -->
+                <div class="aside-city-pages">
+                    <h3>Listings By City</h3>
+                    <ul class="aside-city-pages-menu">
+                        {% for city in cities %}
+                            <li><a href="">{{city.city_name}}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </aside>
+        <div class="all-businesses-main-content">
+            <div class="all-businesses-frwraper">
+                {% for business in businesses %}
+                <div class="business">
+                    <div class="business--img" style="
+                    background: linear-gradient(rgba(56, 83, 136, 0.5),rgba(55, 81, 135, 0.5)), url({{business.featured_img.image.url}});
+                    width:300px;
+                    height: 200px;
+                    background-size: cover;
+                    background-position: center;
+                    opacity: 0.9;
+                    border-radius: 5px;">
+
+                    </div>
+
+                    <h3 class="business-title">{{business.name}}</h3>
+                    <p class="business-desc">{{business.desc|truncatewords:7}}</p>
+                    <div class="business-details">
+                        <p class="phone"><i class="fa-solid fa-phone-volume" style="color: rgb(0, 0, 0);"></i>{{business.phone}}</p>
+                        <p class="city"><i class="fa-solid fa-location-pin" style="color: rgb(0, 0, 0);"></i>{{business.city}}</p>
+                    </div>
+
+                    <div class="business_sub-details">
+                        <div class="featured_cat">
+                            {% if business.category.cat_photo %}
+                            <img src="{{business.category.cat_photo.url}}" alt="">
+                            {% endif %}
+                            <p>{{business.category.cat_name}}</p>
+                        </div>
+
+                        <div class="business_sub-details-right">
+                            <a href=""><i class="fa-solid fa-eye"></i></a>
+                            <p class="tooltip">View More</p>
+                        </div>
+                    </div>
+                </div>
+
+                {% endfor %}
+            </div>
+
+             <button class="load-more" onclick="load();">Load More</button>
+
+        </div>
+       
+       
+    </div>
+     
+</section>
+
+
+{% endblock %}
+
+{% block scripts %}
+ <script src="{% static 'js/listings_scroll.js' %}"></script>
+{% endblock %}
