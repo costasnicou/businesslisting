@@ -142,7 +142,18 @@ section{
   z-index: 100;
 }
 
+// general button styles
+ .btn{
+    padding: 10px 20px;
+    background-color: rgb(82, 114, 167);
+    border: none;
+    color: white;
+    border-radius: 4px;
 
+    &:hover{
+        background-color: darken(rgb(82, 114, 167),5%);
+    }
+} 
 
 .footer{
     background-color: darken(rgb(82, 114, 167),1.5%);
@@ -181,7 +192,7 @@ section{
                 border-radius: 4px;
                 input[type="email"]{
                     padding: 8px;
-                    border: none;
+                    
                 }
                 input[type="submit"]{
                     padding: 10px 20px;

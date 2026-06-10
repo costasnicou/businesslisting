@@ -12,6 +12,20 @@ import datetime
 from django.urls import reverse
 from .models import *
 # Create your views here.
+data = []
+
+def generateListings(request,listings):
+     # start and end of  listings
+    start = int(request.GET.get("start") or 0)
+    end = int(request.GET.get("end") or (start +9))
+
+    # generate listings
+    data = []
+    for listing in listings:
+        listing.featured_img = listing.business_images.filter(featured_img=True).first()
+    data = listings[start:end]
+
+    return data
 
 def login_view(request):
     if request.method == "POST":
@@ -109,8 +123,13 @@ def all_listings(request):
         business.featured_img = business.business_images.filter(featured_img=True).first()
     for i in range(start,end):
         data.append(businesses[i])
-    # print(data)
-    if request.GET:
+    print(data)
+
+    # generateListings(request,businesses)
+
+
+
+    if request.GET and not "submit-filter" in request.GET:
        # Return list of posts
         return JsonResponse({
             "businesses": [
@@ -131,6 +150,46 @@ def all_listings(request):
                 for business in data
             ]
         })
+
+
+    if request.method == "GET":
+        if "submit-filter" in request.GET:
+            
+            if request.GET.get("category_select") != "none":
+                option_category = request.GET.get("category_select")
+            else:
+                option_category = ""
+
+            if request.GET.get("city_select")!= "none":
+                option_city = request.GET.get("city_select")
+            else:
+                option_city=""
+
+            if option_category and option_city:
+                # data = []
+                businesses = Business.objects.filter(category=option_category,city=option_city)
+                data = generateListings(request,businesses)
+                
+            elif option_category and option_category != "" and option_city=="":
+                businesses = Business.objects.filter(category=option_category)
+                data = generateListings(request,businesses)
+               
+                 
+            elif option_city and option_city != "" and option_category=="":
+                businesses = Business.objects.filter(city=option_city)
+                data = generateListings(request,businesses)
+
+
+        # return render(request, "listings/all-listings.html",{
+        #     "cities":cities,
+        #     "categories":categories,
+        #     "businesses":data,
+        # })
+
+
+
+
+        
 
     return render(request, "listings/all-listings.html",{
         "cities":cities,

@@ -11,12 +11,32 @@ function load() {
     const end = start + quantity;
     counter = end;
 
-    // Get new posts and add posts
-    fetch(`/all-listings?start=${start}&end=${end}`)
+    const category = document.querySelector('#category-select').value;
+    const city = document.querySelector('#city-select').value;
+
+    if (category === "") {
+        category = "";
+    }
+
+    if (city === "") {
+        city = "";
+    }
+
+    
+    fetch(
+        `/all-listings?start=${start}&end=${end}`
+    )
     .then(response => response.json())
     .then(data => {
         data.businesses.forEach(add_listing);
-    })
+    });
+
+    // // Get new posts and add posts
+    // fetch(`/all-listings?start=${start}&end=${end}`)
+    // .then(response => response.json())
+    // .then(data => {
+    //     data.businesses.forEach(add_listing);
+    // })
 };
 
 // Add a new post with given contents to DOM
@@ -25,7 +45,7 @@ function add_listing(contents) {
     const html = `
             <div class="business">
                 <div class="business--img" style="
-                background: linear-gradient(rgba(56, 83, 136, 0.5),rgba(55, 81, 135, 0.5)), url(${contents.img});
+                background: linear-gradient(rgba(39, 39, 39, 0.15),rgba(46, 46, 46, 0.15)), url(${contents.img});
                 width:300px;
                 height: 200px;
                 background-size: cover;
@@ -60,7 +80,7 @@ function add_listing(contents) {
     `;
 
 
-    // Add post to DOM
+    // Add business to DOM
     document.querySelector('.all-businesses-frwraper').insertAdjacentHTML("beforeend",html);
-    // document.querySelector('a')
+   
 };

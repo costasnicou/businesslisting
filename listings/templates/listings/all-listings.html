@@ -24,24 +24,47 @@
 
             
                 <div class="aside-form-widget">
-                    <h3>Filter By Category</h3>
-                    <form action="">
+                  
+                    <form class="filtering-form" action="{% url 'all_listings' %}" method="GET">
                         <!-- select box -->
+                        {% csrf_token %}
+
+                        <div class="form-box">
+                            <h3>Listings By Category</h3>
+                             <select name="category_select" id="category-select">
+                                <option value="none" selected>Select a Category</option>
+                                {% for category in categories %}
+                                    <option value="{{category.id}}">{{category.cat_name}}</option>
+                                {% endfor %}
+                            </select>
+
+                        </div>
+                       
+                        <div class="form-box">
+                            <h3>Listings By City</h3>
+                            <select name="city_select" id="city-select">
+                                <option value="none" selected>Select a City</option>
+                                {% for city in cities %}
+                                    <option value="{{city.id}}">{{city.city_name}}</option>
+                                {% endfor %}
+                            </select>
+
+                        </div>
+
+
+                        <div class="form-box">
+                            <input class="btn" name="submit-filter" type="submit" value="Select" id="">
+                        </div>
+
+                       
+
 
                     </form>
                 
                 </div>           
             
 
-                <!-- cities pages -->
-                <div class="aside-city-pages">
-                    <h3>Listings By City</h3>
-                    <ul class="aside-city-pages-menu">
-                        {% for city in cities %}
-                            <li><a href="">{{city.city_name}}</a></li>
-                        {% endfor %}
-                    </ul>
-                </div>
+              
             </div>
         </aside>
         <div class="all-businesses-main-content">
@@ -49,7 +72,7 @@
                 {% for business in businesses %}
                 <div class="business">
                     <div class="business--img" style="
-                    background: linear-gradient(rgba(56, 83, 136, 0.5),rgba(55, 81, 135, 0.5)), url({{business.featured_img.image.url}});
+                    background: linear-gradient(rgba(39, 39, 39, 0.15),rgba(46, 46, 46, 0.15)), url({{business.featured_img.image.url}});
                     width:300px;
                     height: 200px;
                     background-size: cover;
@@ -84,7 +107,11 @@
                 {% endfor %}
             </div>
 
-             <button class="load-more" onclick="load();">Load More</button>
+             {% if not request.GET.category_select or request.GET.category_select == "none" %}
+                {% if not request.GET.city_select or request.GET.city_select == "none" %}
+                    <button class="btn" onclick="load()">Load More</button>
+                {% endif %}
+            {% endif %}
 
         </div>
        

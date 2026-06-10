@@ -89,6 +89,15 @@ section .section-intro {
   display: block;
   z-index: 100; }
 
+.btn {
+  padding: 10px 20px;
+  background-color: #5272a7;
+  border: none;
+  color: white;
+  border-radius: 4px; }
+  .btn:hover {
+    background-color: #4a6696; }
+
 .footer {
   background-color: #4f6ea2;
   background-color: #414141;
@@ -112,8 +121,7 @@ section .section-intro {
     padding: 15px;
     border-radius: 4px; }
     .footer .area .area-content form input[type="email"] {
-      padding: 8px;
-      border: none; }
+      padding: 8px; }
     .footer .area .area-content form input[type="submit"] {
       padding: 10px 20px;
       background-color: #5272a7;
@@ -323,7 +331,7 @@ section .section-intro {
         grid-column-start: 1;
         grid-column-end: 3; }
         .featured-cities .cities-grid .city-item-1 .city-item-img:hover {
-          background: linear-gradient(rgba(56, 83, 136, 0.5), rgba(55, 81, 135, 0.5)), url(../../../../media/city_images/limassol.webp) !important;
+          background: linear-gradient(rgba(217, 217, 217, 0), rgba(55, 80, 135, 0)), url(../../../../media/city_images/limassol.webp) !important;
           width: 100% !important;
           height: 100% !important;
           background-repeat: no-repeat !important;
@@ -334,7 +342,7 @@ section .section-intro {
         grid-column-start: 3;
         grid-column-end: 4; }
         .featured-cities .cities-grid .city-item-2 .city-item-img:hover {
-          background: linear-gradient(rgba(56, 83, 136, 0.5), rgba(55, 81, 135, 0.5)), url(../../../../media/city_images/paphos_no0ksHS.webp) !important;
+          background: linear-gradient(rgba(217, 217, 217, 0), rgba(55, 80, 135, 0)), url(../../../../media/city_images/paphos_no0ksHS.webp) !important;
           width: 100% !important;
           height: 100% !important;
           background-repeat: no-repeat !important;
@@ -347,7 +355,7 @@ section .section-intro {
         grid-column-start: 1;
         grid-column-end: 2; }
         .featured-cities .cities-grid .city-item-3 .city-item-img:hover {
-          background: linear-gradient(rgba(56, 83, 136, 0.5), rgba(55, 81, 135, 0.5)), url(../../../../media/city_images/larnaka.webp) !important;
+          background: linear-gradient(rgba(217, 217, 217, 0), rgba(55, 80, 135, 0)), url(../../../../media/city_images/larnaka.webp) !important;
           width: 100% !important;
           height: 100% !important;
           background-repeat: no-repeat !important;
@@ -360,7 +368,7 @@ section .section-intro {
         grid-column-start: 2;
         grid-column-end: 4; }
         .featured-cities .cities-grid .city-item-4 .city-item-img:hover {
-          background: linear-gradient(rgba(56, 83, 136, 0.5), rgba(55, 81, 135, 0.5)), url(../../../../media/city_images/nicosia.webp) !important;
+          background: linear-gradient(rgba(217, 217, 217, 0), rgba(55, 80, 135, 0)), url(../../../../media/city_images/nicosia.webp) !important;
           width: 100% !important;
           height: 100% !important;
           background-repeat: no-repeat !important;
@@ -378,7 +386,7 @@ section .section-intro {
           color: white;
           text-decoration: none;
           font-weight: bold;
-          background-color: rgba(27, 41, 66, 0.248); }
+          background-color: rgba(69, 69, 69, 0.248); }
         .featured-cities .cities-grid .city-item .city-link:hover {
           background-color: rgba(0, 0, 0, 0); }
 
@@ -564,28 +572,19 @@ section .section-intro {
       .all-businesses-section-wraper .aside-nav .fixed-aside-nav {
         position: sticky;
         top: 150px; }
+        .all-businesses-section-wraper .aside-nav .fixed-aside-nav .aside-form-widget .filtering-form .form-box {
+          margin-bottom: 20px; }
+          .all-businesses-section-wraper .aside-nav .fixed-aside-nav .aside-form-widget .filtering-form .form-box select {
+            padding: 5px; }
       .all-businesses-section-wraper .aside-nav h3 {
         font-weight: 300; }
       .all-businesses-section-wraper .aside-nav > *:not(:last-of-type) {
         margin-bottom: 40px; }
-      .all-businesses-section-wraper .aside-nav .aside-city-pages .aside-city-pages-menu {
-        padding: 0;
-        list-style: none; }
-        .all-businesses-section-wraper .aside-nav .aside-city-pages .aside-city-pages-menu li {
-          margin-left: 10px; }
-        .all-businesses-section-wraper .aside-nav .aside-city-pages .aside-city-pages-menu li:not(:last-of-type) {
-          margin-bottom: 10px; }
-        .all-businesses-section-wraper .aside-nav .aside-city-pages .aside-city-pages-menu li a:link, .all-businesses-section-wraper .aside-nav .aside-city-pages .aside-city-pages-menu li a:visited {
-          text-decoration: none;
-          color: #494949;
-          margin-right: 10px; }
-        .all-businesses-section-wraper .aside-nav .aside-city-pages .aside-city-pages-menu li a:hover {
-          color: #4471cb; }
     .all-businesses-section-wraper .all-businesses-main-content {
       width: 80%; }
       .all-businesses-section-wraper .all-businesses-main-content .all-businesses-frwraper {
         display: flex;
-        justify-content: center;
+        justify-content: flex-start;
         margin: 20px auto;
         flex-wrap: wrap; }
         .all-businesses-section-wraper .all-businesses-main-content .all-businesses-frwraper .business {
@@ -656,13 +655,5 @@ section .section-intro {
                 border-radius: 5px;
                 font-size: 10px;
                 bottom: 9px; }
-      .all-businesses-section-wraper .all-businesses-main-content .load-more {
-        padding: 10px 20px;
-        background-color: #5272a7;
-        border: none;
-        color: white;
-        border-radius: 4px; }
-        .all-businesses-section-wraper .all-businesses-main-content .load-more:hover {
-          background-color: #4a6696; }
 
 /*# sourceMappingURL=app.css.map */
