@@ -3,6 +3,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.db import IntegrityError
 from django.http import HttpResponse, HttpResponseRedirect,JsonResponse
 from django.shortcuts import render
+from django.core.paginator import Paginator
 from .models import User
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
@@ -13,6 +14,7 @@ from django.urls import reverse
 from .models import *
 # Create your views here.
 data = []
+page_obj=""
 
 def generateListings(request,listings):
      # start and end of  listings
@@ -123,13 +125,13 @@ def all_listings(request):
         business.featured_img = business.business_images.filter(featured_img=True).first()
     for i in range(start,end):
         data.append(businesses[i])
-    print(data)
-
-    # generateListings(request,businesses)
 
 
 
-    if request.GET and not "submit-filter" in request.GET:
+
+
+
+    if request.GET and not "submit-filter" in request.GET and "page" not in request.GET:
        # Return list of posts
         return JsonResponse({
             "businesses": [
@@ -153,15 +155,22 @@ def all_listings(request):
 
 
     if request.method == "GET":
-        if "submit-filter" in request.GET:
+        if "submit-filter" in request.GET or "page" in request.GET:
+            str_option_category = ""
+            str_option_city = ""
             
             if request.GET.get("category_select") != "none":
                 option_category = request.GET.get("category_select")
+                str_option_category = str(option_category)
+                
             else:
                 option_category = ""
 
-            if request.GET.get("city_select")!= "none":
+            if request.GET.get("city_select") != "none":
                 option_city = request.GET.get("city_select")
+                str_option_city = str(option_city)
+
+                
             else:
                 option_city=""
 
@@ -169,27 +178,58 @@ def all_listings(request):
                 # data = []
                 businesses = Business.objects.filter(category=option_category,city=option_city)
                 data = generateListings(request,businesses)
+                # paginator
+                paginator = Paginator(data, 9) #Show 9 per page.
+                page_number = request.GET.get('page')
+                page_obj = paginator.get_page(page_number)
+ 
+                return render(request, "listings/all-listings.html",{
+                    "cities":cities,
+                    "categories":categories,
+                    "page_obj":page_obj,
+                    "str_option_category":str_option_category,
+                    "str_option_city":str_option_city,
+                })
+
+
+
                 
             elif option_category and option_category != "" and option_city=="":
                 businesses = Business.objects.filter(category=option_category)
                 data = generateListings(request,businesses)
+                # paginator
+                paginator = Paginator(data, 9) # Show 9 per page.
+                page_number = request.GET.get('page')
+                page_obj = paginator.get_page(page_number)
+
+              
+                return render(request, "listings/all-listings.html",{
+                    "cities":cities,
+                    "categories":categories,
+                    "page_obj":page_obj,
+                    "str_option_category":str_option_category,
+                    "str_option_city":str_option_city,
+                })
                
                  
             elif option_city and option_city != "" and option_category=="":
                 businesses = Business.objects.filter(city=option_city)
-                data = generateListings(request,businesses)
+                data = generateListings(request,businesses)   
+                # paginator
+                paginator = Paginator(data, 9) # Show 9 per page.
+                page_number = request.GET.get('page')
+                page_obj = paginator.get_page(page_number)
 
+                return render(request, "listings/all-listings.html",{
+                    "cities":cities,
+                    "categories":categories,
+                    "page_obj":page_obj,
+                    "str_option_category":str_option_category,
+                    "str_option_city":str_option_city,
+                })
 
-        # return render(request, "listings/all-listings.html",{
-        #     "cities":cities,
-        #     "categories":categories,
-        #     "businesses":data,
-        # })
+               
 
-
-
-
-        
 
     return render(request, "listings/all-listings.html",{
         "cities":cities,

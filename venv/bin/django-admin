@@ -1,5 +1,5 @@
 #!/bin/sh
-'''exec' "/home/cnicou/Documents/Website Related/CS50 Web Development with Python and Javascript/businesslisting/venv/bin/python3" "$0" "$@"
+'''exec' "/home/cnicou/Desktop/Git Repositories/businesslisting/venv/bin/python3" "$0" "$@"
 ' '''
 # -*- coding: utf-8 -*-
 import re

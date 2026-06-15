@@ -98,6 +98,35 @@ section .section-intro {
   .btn:hover {
     background-color: #4a6696; }
 
+.pagination {
+  text-align: center;
+  margin: 30px 0; }
+
+.pagination a,
+.pagination span {
+  display: inline-block;
+  margin: 0 2.5px;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  color: whitesmoke;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 14px;
+  transition: background-color 0.2s ease;
+  background-color: #5b90f8; }
+
+.pagination a:hover {
+  background-color: #3d66b7;
+  color: white;
+  border-color: #0099ff; }
+
+.pagination .current {
+  background-color: #3d66b7;
+  color: white;
+  border-color: #0099ff;
+  font-weight: bold; }
+
+/* end pagination */
 .footer {
   background-color: #4f6ea2;
   background-color: #414141;
@@ -342,7 +371,7 @@ section .section-intro {
         grid-column-start: 3;
         grid-column-end: 4; }
         .featured-cities .cities-grid .city-item-2 .city-item-img:hover {
-          background: linear-gradient(rgba(217, 217, 217, 0), rgba(55, 80, 135, 0)), url(../../../../media/city_images/paphos_no0ksHS.webp) !important;
+          background: linear-gradient(rgba(217, 217, 217, 0), rgba(55, 80, 135, 0)), url(../../../../media/city_images/paphos.webp) !important;
           width: 100% !important;
           height: 100% !important;
           background-repeat: no-repeat !important;
@@ -655,5 +684,8 @@ section .section-intro {
                 border-radius: 5px;
                 font-size: 10px;
                 bottom: 9px; }
+      .all-businesses-section-wraper .all-businesses-main-content .btn.load-more {
+        position: relative;
+        right: 40px; }
 
 /*# sourceMappingURL=app.css.map */
