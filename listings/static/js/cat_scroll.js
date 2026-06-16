@@ -1,6 +1,11 @@
 const businesses = document.querySelectorAll('.business');
 const loadMore = document.querySelector('.load-more');
 
+
+if (businesses.length < 9){
+    loadMore.style.display = "none";
+}
+
 let counter = businesses.length;
 console.log(counter);
 let quantity = 3;
@@ -11,21 +16,25 @@ function load() {
     const end = start + quantity;
     counter = end;
 
+   
     const city = document.querySelector('#city-select').value;
 
-   
 
-    if (city === "none") {
+    if (city === "") {
         city = "";
     }
+    const cat_name = document.querySelector('.featured_cat p').innerText;
 
     
     fetch(
-        `/all-listings?start=${start}&end=${end}`
+        `/category/${cat_name}?start=${start}&end=${end}`
     )
     .then(response => response.json())
     .then(data => {
+       
         data.businesses.forEach(add_listing);
+
+       
     });
 
     // // Get new posts and add posts

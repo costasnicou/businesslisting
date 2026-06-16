@@ -18,14 +18,16 @@ page_obj=""
 
 def generateListings(request,listings):
      # start and end of  listings
-    start = int(request.GET.get("start") or 0)
-    end = int(request.GET.get("end") or (start +9))
+    # start = int(request.GET.get("start") or 0)
+    # end = int(request.GET.get("end") or (start +9))
 
     # generate listings
     data = []
     for listing in listings:
         listing.featured_img = listing.business_images.filter(featured_img=True).first()
-    data = listings[start:end]
+    
+    for i in listings:
+        data.append(i)
 
     return data
 
@@ -123,8 +125,7 @@ def all_listings(request):
     data = []
     for business in businesses:
         business.featured_img = business.business_images.filter(featured_img=True).first()
-    for i in range(start,end):
-        data.append(businesses[i])
+    data = businesses[start:end]
 
 
 
@@ -156,19 +157,17 @@ def all_listings(request):
 
     if request.method == "GET":
         if "submit-filter" in request.GET or "page" in request.GET:
-            str_option_category = ""
-            str_option_city = ""
-            
+           
             if request.GET.get("category_select") != "none":
                 option_category = request.GET.get("category_select")
-                str_option_category = str(option_category)
+               
                 
             else:
                 option_category = ""
 
             if request.GET.get("city_select") != "none":
                 option_city = request.GET.get("city_select")
-                str_option_city = str(option_city)
+               
 
                 
             else:
@@ -187,8 +186,7 @@ def all_listings(request):
                     "cities":cities,
                     "categories":categories,
                     "page_obj":page_obj,
-                    "str_option_category":str_option_category,
-                    "str_option_city":str_option_city,
+                    
                 })
 
 
@@ -207,8 +205,7 @@ def all_listings(request):
                     "cities":cities,
                     "categories":categories,
                     "page_obj":page_obj,
-                    "str_option_category":str_option_category,
-                    "str_option_city":str_option_city,
+                   
                 })
                
                  
@@ -224,8 +221,7 @@ def all_listings(request):
                     "cities":cities,
                     "categories":categories,
                     "page_obj":page_obj,
-                    "str_option_category":str_option_category,
-                    "str_option_city":str_option_city,
+                    
                 })
 
             elif not option_city and not option_category:
@@ -245,15 +241,82 @@ def category(request,cat_name):
     categories =  BusinessCategory.objects.all()
     category = BusinessCategory.objects.get(cat_name=cat_name)
     businesses = category.businesses_by_category.all()
-    # Business.objects.get(category=category)
+  
+    # start and end of  listings
+    start = int(request.GET.get("start") or 0)
+    end = int(request.GET.get("end") or (start +9))
 
-    # generate listing
+    # generate listings
+    data = []
     for business in businesses:
         business.featured_img = business.business_images.filter(featured_img=True).first()
 
-    return render(request, "listings/all-listings.html",{
+   
+    data = businesses[start:end]
+    
+    if request.GET and not "submit-filter" in request.GET and "page" not in request.GET:
+       # Return list of posts
+        return JsonResponse({
+            "businesses": [
+                {
+                    "id": business.id,
+                    "title": business.name,
+                    "desc": business.desc,
+                    "city": business.city.city_name if business.city else None,
+                    "category": business.category.cat_name if business.category else None,
+                    "cat_photo":business.category.cat_photo.url
+                        if business.category.cat_photo
+                        else None,
+                    "img": business.featured_img.image.url
+                        if business.featured_img and business.featured_img.image
+                        else None,
+                    "phone":business.phone,
+                }
+                for business in data
+            
+            ]
+        })
+
+
+    if request.method == "GET":
+        if "submit-filter" in request.GET or "page" in request.GET:
+             
+            if request.GET.get("city_select") != "none":
+                option_city = request.GET.get("city_select")
+                
+            else:
+                option_city=""
+
+            if option_city:
+                
+                # businesses = Business.objects.filter(category=option_category)
+                category = BusinessCategory.objects.get(cat_name=cat_name)
+                
+                businesses = category.businesses_by_category.filter(city=option_city)
+
+                
+
+                data = generateListings(request,businesses)
+                # paginator
+                paginator = Paginator(data, 9) #Show 9 per page.
+                page_number = request.GET.get('page')
+                page_obj = paginator.get_page(page_number)
+ 
+                return render(request, "listings/category.html",{
+                    "cities":cities,
+                    "categories":categories,
+                    "category":category,
+                    "page_obj":page_obj,
+                    
+                })
+
+            elif not option_city:
+                return HttpResponseRedirect(reverse('category', kwargs={'cat_name': category}))
+
+    return render(request, "listings/category.html",{
         "cities":cities,
         "categories":categories,
-        "businesses":businesses,
+        "category":category,
+        "businesses":data,
        
     })
