@@ -1,0 +1,203 @@
+{% extends 'listings/base.html' %}
+{% load static %}
+{% block title %}  Homepage {% endblock %}
+{% block main %}
+
+<div class="all-listings-cover">
+    <div class="all-listings-cover-content">
+        <hgroup>
+            <h1>The Perfect Place is Waiting for You</h1>
+            <h2>Find great places to stay, eat, shop or visit from local experts.</h2>
+        </hgroup>
+
+        <div class="form-wraper">
+
+        </div>
+    </div>
+</div>
+
+<section class="all-businesses">
+    <div class="all-businesses-section-wraper">
+        <aside class="aside-nav">
+            <!-- form to filter by category -->
+            <div class="fixed-aside-nav">
+
+            
+                <div class="aside-form-widget">
+                  
+                    <form class="filtering-form" action="{% url 'all_listings' %}" method="GET">
+                        <!-- select box -->
+                        {% csrf_token %}
+
+                        <div class="form-box">
+                            <h3>Listings By Category</h3>
+                             <select name="category_select" id="category-select">
+                                <option value="none" selected>Select a Category</option>
+                                {% for category in categories %}
+                                
+                                    <option value="{{category.id}}" {% if request.GET.category_select == category.id|stringformat:"s" %} selected {% endif %} >{{category.cat_name}}</option>
+                                {% endfor %}
+                            </select>
+
+                        </div>
+                       
+                        <div class="form-box">
+                            <h3>Listings By City</h3>
+                            <select name="city_select" id="city-select">
+                                <option value="none" selected>Select a City</option>
+                                {% for city in cities %}
+                                    <option value="{{city.id}}"  {% if request.GET.city_select == city.id|stringformat:"s" %} selected {% endif %}>{{city.city_name}}</option>
+                                {% endfor %}
+                            </select>
+
+                        </div>
+
+
+                        <div class="form-box">
+                            <input class="btn" name="submit-filter" type="submit" value="Select" id="">
+                        </div>
+
+                       
+
+
+                    </form>
+                
+                </div>           
+            
+
+              
+            </div>
+        </aside>
+        <div class="all-businesses-main-content">
+            <div class="all-businesses-frwraper">
+                {% if request.GET.category_select or request.GET.category_select == "none" %}
+                    {% if request.GET.city_select or request.GET.city_select == "none" %}
+                        {% for business in page_obj %}
+                            <div class="business">
+                                <div class="business--img" style="
+                                background: linear-gradient(rgba(39, 39, 39, 0.15),rgba(46, 46, 46, 0.15)), url({{business.featured_img.image.url}});
+                                width:300px;
+                                height: 200px;
+                                background-size: cover;
+                                background-position: center;
+                                opacity: 0.9;
+                                border-radius: 5px;">
+
+                                </div>
+
+                                <h3 class="business-title">{{business.name}}</h3>
+                                <p class="business-desc">{{business.desc|truncatewords:7}}</p>
+                                <div class="business-details">
+                                    <p class="phone"><i class="fa-solid fa-phone-volume" style="color: rgb(0, 0, 0);"></i>{{business.phone}}</p>
+                                    <p class="city"><i class="fa-solid fa-location-pin" style="color: rgb(0, 0, 0);"></i>{{business.city}}</p>
+                                </div>
+
+                                <div class="business_sub-details">
+                                    <div class="featured_cat">
+                                        {% if business.category.cat_photo %}
+                                        <img src="{{business.category.cat_photo.url}}" alt="">
+                                        {% endif %}
+                                        <p>{{business.category.cat_name}}</p>
+                                    </div>
+
+                                    <div class="business_sub-details-right">
+                                        <a href=""><i class="fa-solid fa-eye"></i></a>
+                                        <p class="tooltip">View More</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        {% endfor %}
+
+                    {% endif %}
+
+                {% else %}
+                    {% for business in businesses %}
+                        <div class="business">
+                            <div class="business--img" style="
+                            background: linear-gradient(rgba(39, 39, 39, 0.15),rgba(46, 46, 46, 0.15)), url({{business.featured_img.image.url}});
+                            width:300px;
+                            height: 200px;
+                            background-size: cover;
+                            background-position: center;
+                            opacity: 0.9;
+                            border-radius: 5px;">
+
+                            </div>
+
+                            <h3 class="business-title">{{business.name}}</h3>
+                            <p class="business-desc">{{business.desc|truncatewords:7}}</p>
+                            <div class="business-details">
+                                <p class="phone"><i class="fa-solid fa-phone-volume" style="color: rgb(0, 0, 0);"></i>{{business.phone}}</p>
+                                <p class="city"><i class="fa-solid fa-location-pin" style="color: rgb(0, 0, 0);"></i>{{business.city}}</p>
+                            </div>
+
+                            <div class="business_sub-details">
+                                <div class="featured_cat">
+                                    {% if business.category.cat_photo %}
+                                    <img src="{{business.category.cat_photo.url}}" alt="">
+                                    {% endif %}
+                                    <p>{{business.category.cat_name}}</p>
+                                </div>
+
+                                <div class="business_sub-details-right">
+                                    <a href=""><i class="fa-solid fa-eye"></i></a>
+                                    <p class="tooltip">View More</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    {% endfor %}
+                {% endif %}
+               
+            </div>
+
+             {% if not request.GET.category_select or request.GET.category_select == "none" %}
+                {% if not request.GET.city_select or request.GET.city_select == "none" %}
+                    <button class="btn load-more" onclick="load()">Load More</button>
+                {% endif %}
+            {% endif %}
+
+
+            {% if request.GET.category_select or request.GET.category_select == "none" %}
+                {% if request.GET.city_select or request.GET.city_select == "none" %}
+
+                    {%  if page_obj.paginator.num_pages > 1 %}
+                        <div class="pagination">
+                            {% if page_obj.has_previous %}
+                                <a href="?page=1&category_select={{ request.GET.category_select }}&city_select={{ request.GET.city_select }}">« First</a>
+                                <a href="?page={{ page_obj.previous_page_number }}&category_select={{ request.GET.category_select }}&city_select={{ request.GET.city_select }}">‹ Prev</a>
+                            {% endif %}
+
+                            {% for num in page_obj.paginator.page_range %}
+                                {% if num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+                                    {% if page_obj.number == num %}
+                                        <span class="current">{{ num }}</span>
+                                    {% else %}
+                                        <a href="?page={{ num }}&category_select={{ request.GET.category_select }}&city_select={{ request.GET.city_select }}">{{ num }}</a>
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor %}
+
+                            {% if page_obj.has_next %}
+                                <a href="?page={{ page_obj.next_page_number }}&category_select={{ request.GET.category_select }}&city_select={{ request.GET.city_select }}">Next ›</a>
+                                <a href="?page={{ page_obj.paginator.num_pages }}&category_select={{ request.GET.category_select }}&city_select={{ request.GET.city_select }}">Last »</a>
+                            {% endif %}
+                        </div>
+                    {% endif %}
+                {% endif %}
+            {% endif %}
+
+        </div>
+       
+       
+    </div>
+     
+</section>
+
+
+{% endblock %}
+
+{% block scripts %}
+ <script src="{% static 'js/cat_scroll.js' %}"></script>
+{% endblock %}

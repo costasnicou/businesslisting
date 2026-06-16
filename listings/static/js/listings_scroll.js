@@ -22,6 +22,7 @@ function load() {
         city = "";
     }
 
+
     
     fetch(
         `/all-listings?start=${start}&end=${end}`

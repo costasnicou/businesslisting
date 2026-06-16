@@ -228,6 +228,8 @@ def all_listings(request):
                     "str_option_city":str_option_city,
                 })
 
+            elif not option_city and not option_category:
+                return HttpResponseRedirect("all-listings")
                
 
 
@@ -235,4 +237,23 @@ def all_listings(request):
         "cities":cities,
         "categories":categories,
         "businesses":data,
+    })
+
+def category(request,cat_name):
+
+    cities = City.objects.all()
+    categories =  BusinessCategory.objects.all()
+    category = BusinessCategory.objects.get(cat_name=cat_name)
+    businesses = category.businesses_by_category.all()
+    # Business.objects.get(category=category)
+
+    # generate listing
+    for business in businesses:
+        business.featured_img = business.business_images.filter(featured_img=True).first()
+
+    return render(request, "listings/all-listings.html",{
+        "cities":cities,
+        "categories":categories,
+        "businesses":businesses,
+       
     })
