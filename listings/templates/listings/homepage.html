@@ -24,9 +24,10 @@
     <div class="featured-categories-fwraper">
         {% for featured_category in featured_categories %}
             <div class="featured_category">
-                <img  src="{{featured_category.cat_photo.url }}" alt="">
-                <p class="cat-name">{{featured_category.cat_name}}</p>
-               
+                <a href="{% url 'category' featured_category.cat_name %}">
+                    <img  src="{{featured_category.cat_photo.url }}" alt="">
+                    <p class="cat-name">{{featured_category.cat_name}}</p>
+               </a>
             </div>
         {% endfor %}
     </div>
@@ -102,7 +103,7 @@
              
                 ">
 
-                    <a href="" class="city-link">
+                    <a href="{% url 'city' city.city_name %}" class="city-link">
                    
                         {{ city.city_name }}
                     </a>

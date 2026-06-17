@@ -24,7 +24,7 @@
                         <div class="dropdown-content">
                             <ul class="dropdown-menu">
                                 {% for city in cities %}
-                                    <li class="dropdown-item"><a href="" class="dropdown-link nav-link">{{city.city_name}}</a></li>
+                                    <li class="dropdown-item"><a href="{% url 'city' city.city_name %}" class="dropdown-link nav-link">{{city.city_name}}</a></li>
                                 {% endfor %}
                             </ul>
 
@@ -95,7 +95,7 @@
                 <h4>Discover</h4>
                 <ul class="footer-pages">
                     {% for city in cities %}
-                        <li><a href="">{{city.city_name}}</a></li>
+                        <li><a href="{% url 'city' city.city_name %}">{{city.city_name}}</a></li>
                     {% endfor %}
                 </ul>
             </div>

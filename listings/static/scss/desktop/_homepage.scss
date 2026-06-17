@@ -3,7 +3,7 @@
     height: 60vh;
     background-position: center;
     background-size: cover;
-    margin-top: 70px;
+    margin-top: 92px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -21,6 +21,7 @@
         margin: 0 auto;
         // z-index: 1;
         margin-bottom: 25px;
+        margin-bottom: 90px;
       
         h1{
             font-size: 3.5rem;
@@ -56,6 +57,7 @@
         left: 50%;
         transform: translate(-50%,-50%);
         font-weight: bold;
+        margin-bottom: 40px;
         
     }
   
@@ -89,6 +91,13 @@
             border-radius: 10px;
             border: 1px solid  rgb(61, 102, 183);
             transition: all .4s;
+            a:link,a:visited{
+                text-decoration: none;
+                width: 100%;
+                height: 100%;
+                color: rgb(44, 44, 44);
+                display: block;
+            }
             &:hover{
                 background-color: rgb(61, 102, 183);
         

@@ -159,8 +159,11 @@ section{
 // pagination
 
 .pagination {
-  text-align: center;
-  margin: 30px 0;
+    text-align: center;
+    margin: 30px 0;
+    position: relative;
+    right: 40px;
+
 }
 
 .pagination a,
@@ -192,7 +195,14 @@ section{
  
 }
 /* end pagination */
-
+.no-results{
+    justify-self: center;
+    text-align: center;
+    margin: 40px auto 0 auto;
+    font-weight: 300;
+    position: relative;
+    right: 80px;
+}
 .footer{
     background-color: darken(rgb(82, 114, 167),1.5%);
     background-color: rgb(65, 65, 65);

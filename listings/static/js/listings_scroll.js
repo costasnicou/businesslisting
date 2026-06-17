@@ -1,8 +1,19 @@
 const businesses = document.querySelectorAll('.business');
 const loadMore = document.querySelector('.load-more');
+const businessWraper = document.querySelector('.all-businesses-frwraper');
+
 
 let counter = businesses.length;
-console.log(counter);
+if (businesses.length < 9){
+    loadMore.style.display = "none";
+
+    if (businesses.length == 0){
+        const html = `<h3 class="no-results">No Results Found</h3>`;
+        businessWraper.insertAdjacentHTML("beforeend",html);
+        
+    }
+
+}
 let quantity = 3;
 function load() {
 
@@ -14,15 +25,6 @@ function load() {
     const category = document.querySelector('#category-select').value;
     const city = document.querySelector('#city-select').value;
 
-    if (category === "") {
-        category = "";
-    }
-
-    if (city === "") {
-        city = "";
-    }
-
-
     
     fetch(
         `/all-listings?start=${start}&end=${end}`
@@ -32,12 +34,7 @@ function load() {
         data.businesses.forEach(add_listing);
     });
 
-    // // Get new posts and add posts
-    // fetch(`/all-listings?start=${start}&end=${end}`)
-    // .then(response => response.json())
-    // .then(data => {
-    //     data.businesses.forEach(add_listing);
-    // })
+
 };
 
 // Add a new post with given contents to DOM
@@ -82,6 +79,6 @@ function add_listing(contents) {
 
 
     // Add business to DOM
-    document.querySelector('.all-businesses-frwraper').insertAdjacentHTML("beforeend",html);
+    businessWraper.insertAdjacentHTML("beforeend",html);
    
 };

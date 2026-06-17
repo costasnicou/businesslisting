@@ -68,6 +68,7 @@
               
             </div>
         </aside>
+
         <div class="all-businesses-main-content">
             <div class="all-businesses-frwraper">
                 {% if request.GET.category_select or request.GET.category_select == "none" %}
@@ -106,6 +107,9 @@
                                     </div>
                                 </div>
                             </div>
+
+                            {% empty %}
+                                <h3 class="no-results">No Results Found</h3>
 
                         {% endfor %}
 

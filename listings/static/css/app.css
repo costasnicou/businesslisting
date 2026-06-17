@@ -100,7 +100,9 @@ section .section-intro {
 
 .pagination {
   text-align: center;
-  margin: 30px 0; }
+  margin: 30px 0;
+  position: relative;
+  right: 40px; }
 
 .pagination a,
 .pagination span {
@@ -127,6 +129,14 @@ section .section-intro {
   font-weight: bold; }
 
 /* end pagination */
+.no-results {
+  justify-self: center;
+  text-align: center;
+  margin: 40px auto 0 auto;
+  font-weight: 300;
+  position: relative;
+  right: 80px; }
+
 .footer {
   background-color: #4f6ea2;
   background-color: #414141;
@@ -169,7 +179,7 @@ section .section-intro {
   height: 60vh;
   background-position: center;
   background-size: cover;
-  margin-top: 70px;
+  margin-top: 92px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -181,7 +191,8 @@ section .section-intro {
   .hm-cover .hm-cover-content {
     width: 90%;
     margin: 0 auto;
-    margin-bottom: 25px; }
+    margin-bottom: 25px;
+    margin-bottom: 90px; }
     .hm-cover .hm-cover-content h1 {
       font-size: 3.5rem;
       line-height: 1.5rem; }
@@ -204,7 +215,8 @@ section .section-intro {
     bottom: 80px;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-weight: bold; }
+    font-weight: bold;
+    margin-bottom: 40px; }
 
 .featured-categories {
   background-color: #fafafa;
@@ -230,6 +242,12 @@ section .section-intro {
       border-radius: 10px;
       border: 1px solid #3d66b7;
       transition: all .4s; }
+      .featured-categories .featured-categories-fwraper .featured_category a:link, .featured-categories .featured-categories-fwraper .featured_category a:visited {
+        text-decoration: none;
+        width: 100%;
+        height: 100%;
+        color: #2c2c2c;
+        display: block; }
       .featured-categories .featured-categories-fwraper .featured_category:hover {
         background-color: #3d66b7; }
         .featured-categories .featured-categories-fwraper .featured_category:hover p {
@@ -550,11 +568,11 @@ section .section-intro {
           background-color: #3059ac; }
 
 .all-listings-cover {
-  background: linear-gradient(45deg, rgba(51, 59, 74, 0.4), rgba(59, 69, 87, 0.6)), url(../imgs/cover-all-listings.jpg);
+  background: linear-gradient(45deg, rgba(51, 59, 74, 0.4), rgba(59, 69, 87, 0.6)), url(../imgs/cover-category.jpg);
   height: 60vh;
   background-position: center;
   background-size: cover;
-  margin-top: 70px;
+  margin-top: 92px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -687,39 +705,5 @@ section .section-intro {
       .all-businesses-section-wraper .all-businesses-main-content .btn.load-more {
         position: relative;
         right: 40px; }
-
-.all-listings-cover {
-  background: linear-gradient(45deg, rgba(51, 59, 74, 0.4), rgba(59, 69, 87, 0.6)), url(../imgs/cover-category.jpg);
-  height: 60vh;
-  background-position: center;
-  background-size: cover;
-  margin-top: 70px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: white;
-  position: relative;
-  z-index: 1; }
-  .all-listings-cover-content {
-    width: 90%;
-    margin: 0 auto;
-    margin-bottom: 25px; }
-    .all-listings-cover-content h1 {
-      font-size: 3.5rem;
-      line-height: 1.5rem; }
-    .all-listings-cover-content h2 {
-      font-size: 1.4rem;
-      line-height: 1.5rem; }
-    .all-listings-cover-content .form-wraper {
-      width: 55%;
-      background-color: white;
-      border-radius: 50px;
-      margin: 0 auto;
-      height: 60px;
-      margin-top: 40px;
-      -webkit-box-shadow: 5px 5px 17px 4px rgba(0, 0, 0, 0.26);
-      box-shadow: 5px 5px 17px 4px rgba(0, 0, 0, 0.26); }
 
 /*# sourceMappingURL=app.css.map */
