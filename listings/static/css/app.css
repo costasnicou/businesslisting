@@ -688,4 +688,38 @@ section .section-intro {
         position: relative;
         right: 40px; }
 
+.all-listings-cover {
+  background: linear-gradient(45deg, rgba(51, 59, 74, 0.4), rgba(59, 69, 87, 0.6)), url(../imgs/cover-category.jpg);
+  height: 60vh;
+  background-position: center;
+  background-size: cover;
+  margin-top: 70px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  position: relative;
+  z-index: 1; }
+  .all-listings-cover-content {
+    width: 90%;
+    margin: 0 auto;
+    margin-bottom: 25px; }
+    .all-listings-cover-content h1 {
+      font-size: 3.5rem;
+      line-height: 1.5rem; }
+    .all-listings-cover-content h2 {
+      font-size: 1.4rem;
+      line-height: 1.5rem; }
+    .all-listings-cover-content .form-wraper {
+      width: 55%;
+      background-color: white;
+      border-radius: 50px;
+      margin: 0 auto;
+      height: 60px;
+      margin-top: 40px;
+      -webkit-box-shadow: 5px 5px 17px 4px rgba(0, 0, 0, 0.26);
+      box-shadow: 5px 5px 17px 4px rgba(0, 0, 0, 0.26); }
+
 /*# sourceMappingURL=app.css.map */
