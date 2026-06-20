@@ -5,8 +5,12 @@ const businessWraper = document.querySelector('.all-businesses-frwraper');
 if (businesses.length < 9){
     loadMore.style.display = "none";
 
-    if (businesses.length === 0){
+    if (businesses.length == 0){
         const html = `<h3 class="no-results">No Results Found</h3>`;
+        const form = document.querySelector('.filtering-form');
+        const separator = document.querySelector('hr');
+        form.style.display = "none";
+        separator.style.display ="none";
         businessWraper.insertAdjacentHTML("beforeend",html);
         
     }
@@ -40,8 +44,10 @@ function load() {
     .then(response => response.json())
     .then(data => {
        
-        data.businesses.forEach(add_listing);
-
+        data.businesses.forEach((business,index) => {
+            add_listing(business);
+            if (index === data.businesses.length -1) loadMore.style.display = "none";
+        })
        
     });
 

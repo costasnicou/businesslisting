@@ -58,6 +58,20 @@
 
 
                     </form>
+
+                    <hr>
+                    <div class="related-links">
+                        <h3>Other Cities</h3>
+                        <ul class="related-links-menu">
+                            {% for city in cities %}
+
+                                {% if not city.city_name in request.get_full_path %}
+                                <li><a href="{% url 'city' city.city_name %}">{{city.city_name}}</a></li>
+                                {% endif %}
+                            {% endfor %}
+
+                        </ul>
+                    </div>
                 
                 </div>           
             

@@ -402,7 +402,7 @@ section .section-intro {
         grid-column-start: 1;
         grid-column-end: 2; }
         .featured-cities .cities-grid .city-item-3 .city-item-img:hover {
-          background: linear-gradient(rgba(217, 217, 217, 0), rgba(55, 80, 135, 0)), url(../../../../media/city_images/larnaka.webp) !important;
+          background: linear-gradient(rgba(217, 217, 217, 0), rgba(55, 80, 135, 0)), url(../../../../media/city_images/larnaka.jpg) !important;
           width: 100% !important;
           height: 100% !important;
           background-repeat: no-repeat !important;
@@ -705,5 +705,26 @@ section .section-intro {
       .all-businesses-section-wraper .all-businesses-main-content .btn.load-more {
         position: relative;
         right: 40px; }
+
+.related-links .related-links-menu {
+  list-style: none;
+  padding: 0; }
+  .related-links .related-links-menu li {
+    margin-left: 5px; }
+    .related-links .related-links-menu li:not(:last-of-type) {
+      margin-bottom: 5px; }
+    .related-links .related-links-menu li a {
+      text-decoration: none;
+      display: block;
+      color: #747474; }
+      .related-links .related-links-menu li a:hover {
+        color: #4471cb; }
+
+hr {
+  background-color: #f0f0f0;
+  height: 1px;
+  border: 0;
+  width: 60%;
+  margin-left: 0; }
 
 /*# sourceMappingURL=app.css.map */

@@ -1,0 +1,32 @@
+.related-links{
+    .related-links-menu{
+        list-style: none;
+        padding: 0;
+
+        li{
+            &:not(:last-of-type){
+                margin-bottom: 5px;
+            }
+            margin-left: 5px;
+            a {
+                text-decoration: none;
+                display: block;
+                color:rgb(116, 116, 116);
+
+                &:hover{
+                    color:rgb(68, 113, 203);   
+                }
+                
+            }
+        }       
+    }
+}
+
+hr{
+    background-color: rgb(240, 240, 240); 
+    height: 1px; 
+    border: 0;
+    width:60%;
+    margin-left: 0;
+    
+}

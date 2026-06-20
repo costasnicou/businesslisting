@@ -31,7 +31,10 @@ function load() {
     )
     .then(response => response.json())
     .then(data => {
-        data.businesses.forEach(add_listing);
+        data.businesses.forEach((business,index) => {
+            add_listing(business);
+            if (index === data.businesses.length -1) loadMore.style.display = "none";
+        })
     });
 
 

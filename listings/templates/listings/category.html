@@ -25,6 +25,7 @@
             
                 <div class="aside-form-widget">
                   
+                  
                     <form class="filtering-form" action="{% url 'category' category.cat_name %}" method="GET">
                         <!-- select box -->
                         {% csrf_token %}
@@ -50,8 +51,25 @@
 
 
                     </form>
+                  
+                    <hr>
+                    <div class="related-links">
+                        <h3>Other Categories</h3>
+                        <ul class="related-links-menu">
+                            {% for category in categories %}
+
+                                {% if not category.cat_name in request.get_full_path %}
+                                <li><a href="{% url 'category' category.cat_name %}">{{category.cat_name}}</a></li>
+                                {% endif %}
+                            {% endfor %}
+
+                        </ul>
+                    </div>
+                    
                 
-                </div>           
+                </div>    
+                
+                
             
 
               

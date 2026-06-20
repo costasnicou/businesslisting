@@ -12,6 +12,7 @@ from django.core.paginator import Paginator
 import datetime
 from django.urls import reverse
 from .models import *
+
 # Create your views here.
 data = []
 page_obj=""
@@ -242,7 +243,7 @@ def category(request,cat_name):
     # start and end of  listings
     start = int(request.GET.get("start") or 0)
     end = int(request.GET.get("end") or (start +9))
-
+  
     # generate listings
     data = []
     for business in businesses:
