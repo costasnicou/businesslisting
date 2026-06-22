@@ -1,0 +1,43 @@
+{% extends 'listings/base.html' %}
+{% load static %}
+{% block title %}  Homepage {% endblock %}
+{% block main %}
+<div class="business-cover" style="
+    background: linear-gradient(45deg,rgba(39, 39, 39, .5),rgba(46, 46, 46, 0.5)), url({{business.featured_img.image.url}});
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-radius: 5px;
+    height: 500px;
+    margin-top: 92px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+
+
+">
+
+
+    <div class="cover_details"> 
+        <div class="cover_details-left">
+            <h1>{{business.name}}</h1>
+            <div class="first-class">
+
+                <h3>{{business.phone}}</h3>
+                <h3>{{business.city}}</h3>
+            </div>
+
+        </div>
+
+        <div class="cover_details-right">
+            <p>{{business.website}}</p>
+        </div>
+        
+    </div>
+
+</div>
+
+{% endblock %}

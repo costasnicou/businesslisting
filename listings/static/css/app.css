@@ -619,12 +619,18 @@ section .section-intro {
       .all-businesses-section-wraper .aside-nav .fixed-aside-nav {
         position: sticky;
         top: 150px; }
-        .all-businesses-section-wraper .aside-nav .fixed-aside-nav .aside-form-widget .filtering-form .form-box {
-          margin-bottom: 20px; }
-          .all-businesses-section-wraper .aside-nav .fixed-aside-nav .aside-form-widget .filtering-form .form-box select {
-            padding: 5px; }
+        .all-businesses-section-wraper .aside-nav .fixed-aside-nav .aside-form-widget .filtering-form {
+          background-color: #fcfcfc;
+          width: 75%;
+          border-radius: 10px;
+          padding: 10px; }
+          .all-businesses-section-wraper .aside-nav .fixed-aside-nav .aside-form-widget .filtering-form .form-box {
+            margin-bottom: 20px; }
+            .all-businesses-section-wraper .aside-nav .fixed-aside-nav .aside-form-widget .filtering-form .form-box select {
+              padding: 5px; }
       .all-businesses-section-wraper .aside-nav h3 {
-        font-weight: 300; }
+        font-weight: 300;
+        margin-top: 0; }
       .all-businesses-section-wraper .aside-nav > *:not(:last-of-type) {
         margin-bottom: 40px; }
     .all-businesses-section-wraper .all-businesses-main-content {
@@ -706,19 +712,24 @@ section .section-intro {
         position: relative;
         right: 40px; }
 
-.related-links .related-links-menu {
-  list-style: none;
-  padding: 0; }
-  .related-links .related-links-menu li {
-    margin-left: 5px; }
-    .related-links .related-links-menu li:not(:last-of-type) {
-      margin-bottom: 5px; }
-    .related-links .related-links-menu li a {
-      text-decoration: none;
-      display: block;
-      color: #747474; }
-      .related-links .related-links-menu li a:hover {
-        color: #4471cb; }
+.related-links {
+  background-color: #fefefe;
+  width: 75%;
+  border-radius: 10px;
+  padding: 10px; }
+  .related-links .related-links-menu {
+    list-style: none;
+    padding: 0; }
+    .related-links .related-links-menu li {
+      margin-left: 5px; }
+      .related-links .related-links-menu li:not(:last-of-type) {
+        margin-bottom: 5px; }
+      .related-links .related-links-menu li a {
+        text-decoration: none;
+        display: block;
+        color: #747474; }
+        .related-links .related-links-menu li a:hover {
+          color: #4471cb; }
 
 hr {
   background-color: #f0f0f0;
@@ -726,5 +737,21 @@ hr {
   border: 0;
   width: 60%;
   margin-left: 0; }
+
+.cover_details-left h1 {
+  font-size: 50px;
+  text-align: center; }
+
+.first-class {
+  display: flex;
+  justify-content: center; }
+  .first-class h3 {
+    margin-top: 0;
+    text-align: center;
+    font-size: 35px; }
+  .first-class h3:not(last-of-type) {
+    margin-right: 20px; }
+  .first-class h3:last-of-type {
+    margin-left: 20px; }
 
 /*# sourceMappingURL=app.css.map */

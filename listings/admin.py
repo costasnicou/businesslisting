@@ -3,17 +3,7 @@ from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.utils.html import format_html
 from .forms import BusinessHoursAdminForm
 
-from .models import (
-    User,
-    City,
-    BusinessCategory,
-    Business,
-    BusinessSocial,
-    BusinessReview,
-    BusinessImage,
-    BusinessHours,
-    BusinessPartnerRequest
-)
+from .models import *
 @admin.register(BusinessHours)
 class BusinessHoursAdmin(admin.ModelAdmin):
 
@@ -168,7 +158,8 @@ class BusinessAdmin(admin.ModelAdmin):
         "category",
         "featured",
         "phone",
-        "email"
+        "email",
+       
     ]
 
     list_filter = [
@@ -202,7 +193,8 @@ class BusinessAdmin(admin.ModelAdmin):
                 "user",
                 "name",
                 "desc",
-                "featured"
+                "featured",
+                "website"
             )
         }),
 

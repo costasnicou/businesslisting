@@ -1,0 +1,28 @@
+.cover_details-left{
+    h1{
+        font-size: 50px;
+        text-align: center;
+    }
+}
+
+
+.first-class{
+    display: flex;
+    justify-content: center;
+    h3{
+        margin-top:0 ;
+        text-align: center;
+        // font-weight: 400;
+        font-size: 35px;
+        
+
+    }
+    h3:not(last-of-type){
+        margin-right: 20px;
+       
+    }
+
+    h3:last-of-type{
+        margin-left: 20px;
+    }
+}

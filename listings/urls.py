@@ -9,4 +9,5 @@ urlpatterns = [
     path("all-listings", views.all_listings, name="all_listings"),
     path("category/<str:cat_name>",views.category, name="category"),
     path("city/<str:city_name>",views.city, name="city"),
+    path("business/<str:business_name>",views.singlelisting, name="singlelisting"),
 ]

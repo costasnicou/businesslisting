@@ -403,4 +403,17 @@ def city(request,city_name):
     })
 
     
+def singlelisting(request,business_name):
+    cities = City.objects.all()
+    categories =  BusinessCategory.objects.all()
+
+    business = Business.objects.get(name=business_name)
+    business.featured_img = business.business_images.filter(featured_img=True).first()
+    print(business.name)
+    return render(request, "listings/singlelisting.html",{
+        "cities":cities,
+        "categories":categories,
+        "business":business,
+           
+    })
     

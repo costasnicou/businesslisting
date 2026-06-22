@@ -30,6 +30,7 @@ class Business(models.Model):
     city = models.ForeignKey(City,on_delete=models.CASCADE,related_name="businesses_by_city")
     category = models.ForeignKey(BusinessCategory,on_delete=models.CASCADE,related_name="businesses_by_category")
     phone = models.CharField(max_length=20)
+    website = models.URLField(max_length = 200,blank=True,null=True)
     email = models.EmailField()
     featured = models.BooleanField(default=False)
     partners = models.ManyToManyField(
