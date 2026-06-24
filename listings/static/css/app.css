@@ -12,9 +12,6 @@ body {
 * {
   box-sizing: border-box; }
 
-.main {
-  min-height: 90vh; }
-
 section .section-intro {
   text-align: center;
   font-weight: 300; }
@@ -622,8 +619,8 @@ section .section-intro {
         .all-businesses-section-wraper .aside-nav .fixed-aside-nav .aside-form-widget .filtering-form {
           background-color: #fcfcfc;
           width: 75%;
-          border-radius: 10px;
-          padding: 10px; }
+          padding: 10px;
+          border-right: 1px solid #ededed; }
           .all-businesses-section-wraper .aside-nav .fixed-aside-nav .aside-form-widget .filtering-form .form-box {
             margin-bottom: 20px; }
             .all-businesses-section-wraper .aside-nav .fixed-aside-nav .aside-form-widget .filtering-form .form-box select {
@@ -715,7 +712,8 @@ section .section-intro {
 .related-links {
   background-color: #fefefe;
   width: 75%;
-  border-radius: 10px;
+  padding: 0;
+  border-right: 1px solid #ededed;
   padding: 10px; }
   .related-links .related-links-menu {
     list-style: none;
@@ -735,23 +733,100 @@ hr {
   background-color: #f0f0f0;
   height: 1px;
   border: 0;
-  width: 60%;
+  width: 70%;
   margin-left: 0; }
 
-.cover_details-left h1 {
-  font-size: 50px;
-  text-align: center; }
-
-.first-class {
+.cover_details {
   display: flex;
-  justify-content: center; }
-  .first-class h3 {
+  justify-content: space-between;
+  width: 70%;
+  position: absolute;
+  bottom: 75px;
+  align-items: center;
+  background-color: rgba(82, 82, 82, 0.113);
+  margin: 0 auto;
+  left: 17%;
+  padding: 10px 20px;
+  border-radius: 8px; }
+
+.cover_details-left h1 {
+  font-size: 30px; }
+.cover_details-left .first-class {
+  display: flex;
+  justify-content: flex-start; }
+  .cover_details-left .first-class p {
     margin-top: 0;
+    margin-bottom: 0;
     text-align: center;
-    font-size: 35px; }
-  .first-class h3:not(last-of-type) {
-    margin-right: 20px; }
-  .first-class h3:last-of-type {
-    margin-left: 20px; }
+    font-size: 20px; }
+    .cover_details-left .first-class p i {
+      color: white;
+      margin-right: 10px; }
+  .cover_details-left .first-class p:not(last-of-type) {
+    margin-right: 10px; }
+  .cover_details-left .first-class p:last-of-type {
+    margin-left: 10px; }
+.cover_details-left .reviews-count p i {
+  color: white;
+  margin-right: 5px; }
+
+.cover_details-right {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  position: relative;
+  top: 35px; }
+  .cover_details-right p.website {
+    margin-right: 15px; }
+    .cover_details-right p.website span {
+      position: relative;
+      bottom: 5px; }
+    .cover_details-right p.website .website-link:link {
+      transition: all .4s; }
+      .cover_details-right p.website .website-link:link:hover {
+        color: #dfdfdf; }
+    .cover_details-right p.website .website-link:link, .cover_details-right p.website .website-link:visited {
+      color: white; }
+      .cover_details-right p.website .website-link:link i, .cover_details-right p.website .website-link:visited i {
+        font-size: 30px;
+        margin-right: 5px; }
+  .cover_details-right .submit-review:link, .cover_details-right .submit-review:visited {
+    color: #2c66da;
+    background-color: white;
+    padding: 10px 20px;
+    margin-right: 10px;
+    border-radius: 4px;
+    text-decoration: none;
+    border: none;
+    font-size: .9rem;
+    transition: all .4s; }
+    .cover_details-right .submit-review:link:hover, .cover_details-right .submit-review:visited:hover {
+      background-color: #3d66b7;
+      color: white; }
+
+.business-content {
+  padding: 40px 20px; }
+  .business-content-wraper {
+    display: flex;
+    justify-content: center;
+    width: 75%;
+    margin: 0 auto; }
+    .business-content-wraper-left {
+      width: 70%; }
+      .business-content-wraper-left p, .business-content-wraper-left h2 {
+        font-weight: 300;
+        color: #535353; }
+      .business-content-wraper-left p {
+        color: #3e3e3e;
+        height: 98px;
+        overflow: hidden; }
+      .business-content-wraper-left .overview-read-more:link, .business-content-wraper-left .overview-read-more:visited {
+        text-decoration: none;
+        color: #3d66b7;
+        font-weight: 300; }
+        .business-content-wraper-left .overview-read-more:link:hover, .business-content-wraper-left .overview-read-more:visited:hover {
+          font-weight: 400; }
+    .business-content-wraper-right {
+      width: 30%; }
 
 /*# sourceMappingURL=app.css.map */

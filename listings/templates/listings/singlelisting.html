@@ -11,11 +11,7 @@
     height: 500px;
     margin-top: 92px;
     position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    color: white;
+   color: white;
 
 
 ">
@@ -26,18 +22,45 @@
             <h1>{{business.name}}</h1>
             <div class="first-class">
 
-                <h3>{{business.phone}}</h3>
-                <h3>{{business.city}}</h3>
+                <p><i class="fa-solid fa-phone-volume" ></i>{{business.phone}}</p>
+                <p><i class="fa-solid fa-location-pin" ></i>{{business.city}}</p>
+            </div>
+
+            <div class="reviews-count">
+               <p><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> (5 reviews)</p> 
             </div>
 
         </div>
 
         <div class="cover_details-right">
-            <p>{{business.website}}</p>
+            <p class="website"><a class="website-link" target="_blank" href="{{business.website}}"><i class="fa-solid fa-globe"></i></a> <span>Website</span></p>
+            <a href="" class="submit-review">Submit Review</a>
         </div>
         
     </div>
 
 </div>
 
+<section class="business-content">
+    <div class="business-content-wraper">
+        <div class="business-content-wraper-left">
+            <article>
+                <h2>Overview</h2>
+                <p class="business-overview">{{business.desc}}</p>
+                <a href="" class="overview-read-more">Read More</a>
+            </article>
+
+        </div>
+
+        <div class="business-content-wraper-right">
+
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static 'js/business.js' %}"></script>
 {% endblock %}
