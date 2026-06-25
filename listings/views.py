@@ -409,11 +409,12 @@ def singlelisting(request,business_name):
 
     business = Business.objects.get(name=business_name)
     business.featured_img = business.business_images.filter(featured_img=True).first()
-    print(business.name)
+    gallery = business.business_images.filter(featured_img=False)[0:4]
     return render(request, "listings/singlelisting.html",{
         "cities":cities,
         "categories":categories,
         "business":business,
+        "gallery":gallery,
            
     })
     

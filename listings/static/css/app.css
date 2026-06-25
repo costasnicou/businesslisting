@@ -739,13 +739,13 @@ hr {
 .cover_details {
   display: flex;
   justify-content: space-between;
-  width: 70%;
+  width: 75%;
   position: absolute;
   bottom: 75px;
   align-items: center;
   background-color: rgba(82, 82, 82, 0.113);
   margin: 0 auto;
-  left: 17%;
+  left: 12%;
   padding: 10px 20px;
   border-radius: 8px; }
 
@@ -828,5 +828,39 @@ hr {
           font-weight: 400; }
     .business-content-wraper-right {
       width: 30%; }
+
+.photo-gallery-wraper {
+  display: flex;
+  flex-wrap: wrap; }
+  .photo-gallery-wraper img {
+    width: 200px;
+    height: 200px;
+    margin-top: 10px; }
+    .photo-gallery-wraper img:not(:last-of-type) {
+      margin-right: 20px; }
+    .photo-gallery-wraper img:hover {
+      cursor: zoom-in; }
+  .photo-gallery-wraper .zoomed {
+    position: fixed;
+    height: 75%;
+    width: 70%;
+    z-index: 210;
+    inset: 100px auto; }
+.photo-gallery .overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.801);
+  z-index: 200; }
+.photo-gallery .hidden {
+  display: none; }
+.photo-gallery .close-img {
+  position: fixed;
+  border: none;
+  background-color: transparent;
+  top: 30px;
+  right: 200px;
+  z-index: 220;
+  color: white;
+  font-size: 60px; }
 
 /*# sourceMappingURL=app.css.map */

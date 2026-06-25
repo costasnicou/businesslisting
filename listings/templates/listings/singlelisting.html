@@ -50,6 +50,18 @@
                 <a href="" class="overview-read-more">Read More</a>
             </article>
 
+            <div class="photo-gallery">
+                <h2>Photo Gallery</h2>
+                <div class="photo-gallery-wraper">
+                    {% for img in gallery %}
+                        <img class="gal-img" src="{{img.image.url}}" alt="">
+                    {% endfor %}
+                   
+                </div>
+                <button class="close-img hidden">&times;</button>
+                <div class="overlay hidden"></div>
+            </div>
+
         </div>
 
         <div class="business-content-wraper-right">
