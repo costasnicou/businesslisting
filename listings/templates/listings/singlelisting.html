@@ -3,7 +3,7 @@
 {% block title %}  Homepage {% endblock %}
 {% block main %}
 <div class="business-cover" style="
-    background: linear-gradient(45deg,rgba(39, 39, 39, .5),rgba(46, 46, 46, 0.5)), url({{business.featured_img.image.url}});
+    background: linear-gradient(45deg,rgba(39, 39, 39, .35),rgba(46, 46, 46, 0.35)), url({{business.featured_img.image.url}});
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -47,7 +47,7 @@
             <article>
                 <h2>Overview</h2>
                 <p class="business-overview">{{business.desc}}</p>
-                <a href="" class="overview-read-more">Read More</a>
+                <a href="" class="overview-read-more">Read More &raquo;</a>
             </article>
 
             <div class="photo-gallery">

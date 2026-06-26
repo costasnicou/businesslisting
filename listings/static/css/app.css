@@ -743,7 +743,7 @@ hr {
   position: absolute;
   bottom: 75px;
   align-items: center;
-  background-color: rgba(82, 82, 82, 0.113);
+  background-color: rgba(59, 59, 59, 0.05);
   margin: 0 auto;
   left: 12%;
   padding: 10px 20px;
@@ -780,16 +780,20 @@ hr {
     margin-right: 15px; }
     .cover_details-right p.website span {
       position: relative;
-      bottom: 5px; }
+      bottom: 5px;
+      font-weight: bold; }
     .cover_details-right p.website .website-link:link {
       transition: all .4s; }
       .cover_details-right p.website .website-link:link:hover {
         color: #dfdfdf; }
+        .cover_details-right p.website .website-link:link:hover i {
+          transform: rotate(360deg); }
     .cover_details-right p.website .website-link:link, .cover_details-right p.website .website-link:visited {
       color: white; }
       .cover_details-right p.website .website-link:link i, .cover_details-right p.website .website-link:visited i {
         font-size: 30px;
-        margin-right: 5px; }
+        margin-right: 5px;
+        transition: all .5s; }
   .cover_details-right .submit-review:link, .cover_details-right .submit-review:visited {
     color: #2c66da;
     background-color: white;
@@ -797,15 +801,15 @@ hr {
     margin-right: 10px;
     border-radius: 4px;
     text-decoration: none;
-    border: none;
     font-size: .9rem;
-    transition: all .4s; }
+    transition: all .4s;
+    border: none; }
     .cover_details-right .submit-review:link:hover, .cover_details-right .submit-review:visited:hover {
       background-color: #3d66b7;
       color: white; }
 
 .business-content {
-  padding: 40px 20px; }
+  padding: 60px 20px; }
   .business-content-wraper {
     display: flex;
     justify-content: center;
@@ -814,18 +818,25 @@ hr {
     .business-content-wraper-left {
       width: 70%; }
       .business-content-wraper-left p, .business-content-wraper-left h2 {
+        color: #5e5d5d; }
+      .business-content-wraper-left .business-overview {
+        color: #5c5b5b;
+        height: 87px;
+        overflow: hidden;
+        line-height: 1.4rem;
         font-weight: 300;
-        color: #535353; }
-      .business-content-wraper-left p {
-        color: #3e3e3e;
-        height: 98px;
-        overflow: hidden; }
+        transition: height .8s ease-in-out; }
+      .business-content-wraper-left h2 {
+        font-size: 19px;
+        color: #828282; }
+      .business-content-wraper-left article h2 {
+        margin-top: 0; }
       .business-content-wraper-left .overview-read-more:link, .business-content-wraper-left .overview-read-more:visited {
         text-decoration: none;
-        color: #3d66b7;
+        color: #353535;
         font-weight: 300; }
         .business-content-wraper-left .overview-read-more:link:hover, .business-content-wraper-left .overview-read-more:visited:hover {
-          font-weight: 400; }
+          color: #191919; }
     .business-content-wraper-right {
       width: 30%; }
 
@@ -834,8 +845,9 @@ hr {
   flex-wrap: wrap; }
   .photo-gallery-wraper img {
     width: 200px;
-    height: 200px;
-    margin-top: 10px; }
+    height: 150px;
+    margin-top: 10px;
+    transition: height .8s ease-in-out; }
     .photo-gallery-wraper img:not(:last-of-type) {
       margin-right: 20px; }
     .photo-gallery-wraper img:hover {
@@ -861,6 +873,9 @@ hr {
   right: 200px;
   z-index: 220;
   color: white;
-  font-size: 60px; }
+  font-size: 60px;
+  cursor: pointer; }
+  .photo-gallery .close-img:hover {
+    color: #cccccc; }
 
 /*# sourceMappingURL=app.css.map */

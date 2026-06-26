@@ -6,7 +6,10 @@
     position: absolute;
     bottom: 75px;
     align-items: center;
-    background-color: rgba(82, 82, 82, 0.113);
+    background-color: rgba(59, 59, 59, 0.050);
+    // background-color:  #527bcd;
+    // background-color:  #474747;
+    // border: 2px solid #626987;;
     margin: 0 auto;
     left: 12%;
     // transform: translateX(%);
@@ -67,7 +70,7 @@
         span{
           position: relative;
           bottom: 5px;
-           
+            font-weight: bold;
 
         }
 
@@ -75,6 +78,11 @@
             transition: all .4s;
              &:hover{
                 color: rgb(223, 223, 223);
+                
+               
+                i{
+                    transform: rotate(360deg);
+                }
             }
         }
         .website-link:link,.website-link:visited{
@@ -83,6 +91,7 @@
             i{
                 font-size: 30px;
                 margin-right: 5px;
+                transition: all .5s;
             }
         }
     }
@@ -95,9 +104,9 @@
         border-radius: 4px;
         // font-weight: bold;
         text-decoration: none;
-        border: none;
         font-size: .9rem;
         transition: all .4s;
+        border: none;
         &:hover{
             background-color:rgb(61, 102, 183);
             color: white;
@@ -108,8 +117,7 @@
 }
 
 .business-content{
-    padding: 40px 20px;
-
+    padding: 60px 20px;
     &-wraper{
         display: flex;
         justify-content: center;
@@ -119,22 +127,37 @@
         &-left{
             width: 70%;
             p,h2{
-                font-weight: 300;
-                color: rgb(83, 83, 83);
+                // font-weight: 300;
+                color: rgb(94, 93, 93);
             }
-            p{
-                color: rgb(62, 62, 62);
-                height: 98px;
+            .business-overview{
+                color: rgb(92, 91, 91);
+                height: 87px;
                 overflow: hidden;
+                line-height: 1.4rem;
+                font-weight: 300;
+                transition: height .8s ease-in-out;
+               
+            }
+
+            h2{
+                font-size: 19px;
+                 color: rgb(130, 130, 130);
+                //  color: #254b96;;
+            }
+
+            article h2{
+                margin-top: 0;
             }
 
             .overview-read-more:link,.overview-read-more:visited{
                 text-decoration: none;
-                color: rgb(61, 102, 183);
+                color: rgb(53, 53, 53);
                 font-weight: 300;
 
                 &:hover{
-                    font-weight: 400;
+                     color: rgb(25, 25, 25);
+                  
                     
                 }
                 
@@ -156,9 +179,9 @@
 
         img{
             width: 200px;
-            height: 200px;
+            height: 150px;
             margin-top: 10px;
-
+            transition: height .8s ease-in-out;
             &:not(:last-of-type){
                 margin-right: 20px;
             }
@@ -198,6 +221,11 @@
         z-index: 220;
         color: white;
         font-size: 60px;
+        cursor: pointer;
+
+        &:hover{
+            color: rgb(204, 204, 204);
+        }
 
     }
 }
