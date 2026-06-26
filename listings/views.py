@@ -12,7 +12,7 @@ from django.core.paginator import Paginator
 import datetime
 from django.urls import reverse
 from .models import *
-
+from django.db.models import Avg
 # Create your views here.
 data = []
 page_obj=""
@@ -410,11 +410,24 @@ def singlelisting(request,business_name):
     business = Business.objects.get(name=business_name)
     business.featured_img = business.business_images.filter(featured_img=True).first()
     gallery = business.business_images.filter(featured_img=False)[0:4]
+    reviews_count = business.business_reviews.all().count()
+    reviews_stars_avg = int(round(business.business_reviews.aggregate(
+        avg=Avg("stars")
+    )["avg"]))
+    
+    social = business.business_social_links.all()
+  
+
+
     return render(request, "listings/singlelisting.html",{
         "cities":cities,
         "categories":categories,
         "business":business,
         "gallery":gallery,
+        "reviews_count":reviews_count,
+        "reviews_stars_avg":reviews_stars_avg,
+        "stars_range": range(reviews_stars_avg),
+        "social":social,
            
     })
     

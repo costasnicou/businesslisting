@@ -125,7 +125,7 @@
         margin: 0 auto;
 
         &-left{
-            width: 70%;
+            width: 75%;
             p,h2{
                 // font-weight: 300;
                 color: rgb(94, 93, 93);
@@ -165,7 +165,45 @@
         }
 
         &-right{
-            width: 30%;
+            width: 25%;
+            padding: 0 20px;
+
+            .location{
+                font-weight: 300;
+                padding: 30px;
+                border: 1px solid rgb(229, 229, 229);;
+                h2{
+                    font-size: 19px;
+                    color: rgb(130, 130, 130);
+                    //  color: #254b96;;
+                    margin-top: 0;
+                }
+
+                p{
+                    color: rgb(92, 91, 91);
+                    font-weight: 300;
+               
+                }
+
+                p i{
+                     color: rgb(174, 174, 174);
+                     margin-right: 10px;
+                }
+
+                .business-social a:link,.business-social a:visited{
+
+                    text-decoration: none;
+                    font-size: 25px;
+                    color: rgb(115, 115, 115);
+                    &:not(:last-of-type){
+                        margin-right: 5px;
+                    }
+
+                    &:hover{
+                        color: rgb(21, 21, 21);;
+                    }
+                }
+            }
         }
     }
 }

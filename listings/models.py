@@ -70,7 +70,7 @@ class BusinessSocial(models.Model):
         unique_together = ('business', 'network')
 
     def __str__(self):
-        return f"{self.business.name} - {self.platform}"
+        return f"{self.business.name} - {self.network}"
 
 
 class BusinessReview(models.Model):

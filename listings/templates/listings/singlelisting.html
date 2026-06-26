@@ -27,7 +27,7 @@
             </div>
 
             <div class="reviews-count">
-               <p><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> (5 reviews)</p> 
+               <p> {% for i in stars_range %} <i class="fa-solid fa-star"></i> {% endfor %} ({{reviews_count}} reviews)</p> 
             </div>
 
         </div>
@@ -65,7 +65,37 @@
         </div>
 
         <div class="business-content-wraper-right">
+            <div class="location">
+                <h2>Location</h2>
+                <!-- address -->
+                <p><i class="fa-solid fa-map-location"></i>{{business.address}}</p>
+                <!-- telephone -->
+                <p><i class="fa-solid fa-phone"></i>{{business.phone}}</p>
+                <!-- email -->
+                <p><i class="fa-solid fa-envelope"></i>{{business.email}}</p>
+                <!-- website -->
 
+                <!-- social -->
+                <div class="business-social">
+                    {% for platform in social %}
+                        <a href="{{platform.url}}" target="_blank">
+                            {% if platform.network == 'facebook' %}
+                            <i class="fa-brands fa-facebook"></i>
+                            {% elif platform.network == 'instagram' %}
+                            <i class="fa-brands fa-instagram"></i>
+                            {% elif platform.network == 'x' %}
+                            <i class="fa-brands fa-x-twitter"></i>
+                            {% elif platform.network == 'youtube' %}
+                            <i class="fa-brands fa-youtube"></i>
+                            {% elif platform.network == 'linkedin' %}
+                            <i class="fa-brands fa-linkedin"></i>
+                            {% elif platform.network == 'tiktok' %}
+                            <i class="fa-brands fa-tiktok"></i>
+                            {% endif %}
+                        </a>
+                    {% endfor %}
+                </div>
+            </div>
         </div>
 
     </div>
