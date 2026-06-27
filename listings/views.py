@@ -413,7 +413,7 @@ def singlelisting(request,business_name):
     reviews_count = business.business_reviews.all().count()
     reviews_stars_avg = int(round(business.business_reviews.aggregate(
         avg=Avg("stars")
-    )["avg"]))
+    )["avg"] or 0))
     
     social = business.business_social_links.all()
   
