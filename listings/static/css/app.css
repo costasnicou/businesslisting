@@ -896,12 +896,13 @@ hr {
       margin-right: 20px; }
     .photo-gallery-wraper img:hover {
       cursor: zoom-in; }
-  .photo-gallery-wraper .zoomed {
+  .photo-gallery-wraper img.zoomed {
     position: fixed;
     height: 75%;
     width: 70%;
     z-index: 210;
-    inset: 100px auto; }
+    inset: 100px auto;
+    cursor: zoom-out; }
 .photo-gallery .overlay {
   position: fixed;
   inset: 0;

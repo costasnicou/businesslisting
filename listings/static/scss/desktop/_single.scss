@@ -21,7 +21,7 @@
     h1{
         font-size: 30px;
     }
-
+    
     .first-class{
         display: flex;
         justify-content: flex-start;
@@ -242,12 +242,13 @@
 
         }
 
-        .zoomed{
+        img.zoomed{
             position: fixed;
             height: 75%;
             width: 70%;
             z-index: 210;
             inset: 100px auto;
+            cursor: zoom-out;
         }
     }
 

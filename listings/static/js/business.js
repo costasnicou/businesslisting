@@ -14,21 +14,35 @@ showMore.addEventListener('click',function(e){
 galImg.forEach(img=>{
     img.addEventListener('click',function(){
       
-        overlay.classList.remove('hidden');
-        img.classList.add('zoomed');
-        closeImg.classList.remove('hidden');
+        if (img.classList.contains('zoomed')){
+            galImg.forEach(img=>{
+                img.style.transition = "none";
+                img.classList.remove('zoomed');
+               
+            });
+            overlay.classList.add('hidden');
+            closeImg.classList.add('hidden');
+        }else if (!img.classList.contains('zoomed')){
+            img.style.transition = "height 0.8s";
+            overlay.classList.remove('hidden');
+            img.classList.add('zoomed');            
+            closeImg.classList.remove('hidden');            
+        }
 
 
     });
 
+   
+
 });
 
 
-closeImg.onclick = function(){
+closeImg.onclick = function closeImg(){
    
     galImg.forEach(img=>{
         img.classList.remove('zoomed');
-    })
+        img.style.transition = "none";
+    });
     
    
     overlay.classList.add('hidden');
