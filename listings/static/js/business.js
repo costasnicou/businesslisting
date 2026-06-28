@@ -37,7 +37,7 @@ galImg.forEach(img=>{
 });
 
 
-closeImg.onclick = function closeImg(){
+closeImg.onclick = function (){
    
     galImg.forEach(img=>{
         img.classList.remove('zoomed');
