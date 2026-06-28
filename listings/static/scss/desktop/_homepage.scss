@@ -171,6 +171,18 @@
             margin-bottom: 20px;
             border-radius: 10px;
             border: 1px solid  rgb(189, 189, 189);
+
+            .business--img .list-reviews{
+                color: white;
+                position: absolute;
+                left: 5px;
+                bottom: 5px;
+                p{
+                    margin: 0;
+                    font-weight: bold;
+
+                }
+            }
             .business-details{
                 display: flex;
                 justify-content: space-between;
@@ -256,6 +268,7 @@
                         border-radius: 5px;
                         font-size: 10px;
                         bottom: 9px;
+                        font-weight: bold;
                                         
                     }
                 }

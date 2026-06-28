@@ -23,6 +23,11 @@ def generateListings(request,listings):
     data = []
     for listing in listings:
         listing.featured_img = listing.business_images.filter(featured_img=True).first()
+        listing.reviews_count = listing.business_reviews.all().count()
+        listing.reviews_stars_avg = int(round(listing.business_reviews.aggregate(
+            avg=Avg("stars")
+        )["avg"] or 0))
+        listing.stars_range = range(listing.reviews_stars_avg)
     
     for i in listings:
         data.append(i)
@@ -97,15 +102,20 @@ def index(request):
     featured_businesses = Business.objects.filter(featured=True)
     for featured_business in featured_businesses:
         featured_business.featured_img = featured_business.business_images.filter(featured_img=True).first()
-
-
-
+        featured_business.reviews_count = featured_business.business_reviews.all().count()
+        featured_business.reviews_stars_avg = int(round(featured_business.business_reviews.aggregate(
+            avg=Avg("stars")
+        )["avg"] or 0))
+        featured_business.stars_range = range(featured_business.reviews_stars_avg)
 
     return render(request, "listings/homepage.html",{
         "cities":cities,
         "categories":categories,
         "featured_categories":featured_categories,
         "featured_businesses":featured_businesses,
+        # "reviews_count":reviews_count,
+        # # "reviews_stars_avg":reviews_stars_avg,
+        # "stars_range": range(reviews_stars_avg),
     })
 
 
@@ -123,6 +133,11 @@ def all_listings(request):
     data = []
     for business in businesses:
         business.featured_img = business.business_images.filter(featured_img=True).first()
+        business.reviews_count = business.business_reviews.all().count()
+        business.reviews_stars_avg = int(round(business.business_reviews.aggregate(
+            avg=Avg("stars")
+        )["avg"] or 0))
+        business.stars_range = range(business.reviews_stars_avg)
     data = businesses[start:end]
 
 
@@ -147,6 +162,15 @@ def all_listings(request):
                         if business.featured_img and business.featured_img.image
                         else None,
                     "phone":business.phone,
+                    "reviews_count": business.reviews_count
+                     if business.reviews_count
+                        else None,
+                    "reviews_stars_avg":business.reviews_stars_avg
+                    if business.reviews_stars_avg
+                        else None,
+                   
+
+
                 }
                 for business in data
             ]
@@ -248,6 +272,11 @@ def category(request,cat_name):
     data = []
     for business in businesses:
         business.featured_img = business.business_images.filter(featured_img=True).first()
+        business.reviews_count = business.business_reviews.all().count()
+        business.reviews_stars_avg = int(round(business.business_reviews.aggregate(
+            avg=Avg("stars")
+        )["avg"] or 0))
+        business.stars_range = range(business.reviews_stars_avg)
 
    
     data = businesses[start:end]
@@ -269,6 +298,12 @@ def category(request,cat_name):
                         if business.featured_img and business.featured_img.image
                         else None,
                     "phone":business.phone,
+                    "reviews_count": business.reviews_count
+                     if business.reviews_count
+                        else None,
+                    "reviews_stars_avg":business.reviews_stars_avg
+                    if business.reviews_stars_avg
+                        else None,
                 }
                 for business in data
             
@@ -333,6 +368,12 @@ def city(request,city_name):
     data = []
     for business in businesses:
         business.featured_img = business.business_images.filter(featured_img=True).first()
+        business.reviews_count = business.business_reviews.all().count()
+        business.reviews_stars_avg = int(round(business.business_reviews.aggregate(
+            avg=Avg("stars")
+        )["avg"] or 0))
+        business.stars_range = range(business.reviews_stars_avg)
+
     data = businesses[start:end]
 
     if request.GET and not "submit-filter" in request.GET and "page" not in request.GET:
@@ -352,6 +393,12 @@ def city(request,city_name):
                         if business.featured_img and business.featured_img.image
                         else None,
                     "phone":business.phone,
+                    "reviews_count": business.reviews_count
+                    if business.reviews_count
+                        else None,
+                    "reviews_stars_avg":business.reviews_stars_avg
+                    if business.reviews_stars_avg
+                        else None,
                 }
                 for business in data
             
@@ -416,8 +463,9 @@ def singlelisting(request,business_name):
     )["avg"] or 0))
     
     social = business.business_social_links.all()
-  
-
+    hours = business.hours.all()
+    # for hour in hours:
+    #     full_day = hour.weekdays_display()
 
     return render(request, "listings/singlelisting.html",{
         "cities":cities,
@@ -428,6 +476,7 @@ def singlelisting(request,business_name):
         "reviews_stars_avg":reviews_stars_avg,
         "stars_range": range(reviews_stars_avg),
         "social":social,
+        "hours":hours
            
     })
     

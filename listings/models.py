@@ -120,6 +120,7 @@ class BusinessHours(models.Model):
         ('sat', 'Saturday'),
         ('sun', 'Sunday'),
     ]
+
     business = models.ForeignKey(Business, on_delete=models.CASCADE, related_name='hours')
     day = models.CharField(max_length=3, choices=weekdays)
     open_time = models.TimeField()

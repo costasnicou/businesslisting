@@ -168,10 +168,10 @@
             width: 25%;
             padding: 0 20px;
 
-            .location{
+            .sidebar-box{
                 font-weight: 300;
                 padding: 30px;
-                border: 1px solid rgb(229, 229, 229);;
+                border: 1px solid rgb(229, 229, 229);
                 h2{
                     font-size: 19px;
                     color: rgb(130, 130, 130);
@@ -179,17 +179,29 @@
                     margin-top: 0;
                 }
 
-                p{
+                p,a:link,a:visited{
                     color: rgb(92, 91, 91);
                     font-weight: 300;
                
                 }
 
-                p i{
-                     color: rgb(174, 174, 174);
-                     margin-right: 10px;
+                &:not(:last-of-type){
+                    margin-bottom: 15px;
                 }
 
+                p{
+
+                    // line-height: 25px;
+                    i{
+                     color: rgb(174, 174, 174);
+                     margin-right: 10px;
+                    }
+                } 
+
+              
+            }
+
+            .location{
                 .business-social a:link,.business-social a:visited{
 
                     text-decoration: none;

@@ -27,7 +27,7 @@
             </div>
 
             <div class="reviews-count">
-               <p> {% for i in stars_range %} <i class="fa-solid fa-star"></i> {% empty %} No Review yet. {% endfor %} ({% if reviews_count %}{{reviews_count}} {% else %}0 {% endif %} reviews)</p> 
+               <p> {% for i in stars_range %} <i class="fa-solid fa-star"></i> {% empty %}{% endfor %} ({% if reviews_count %}{{reviews_count}} {% else %}0 {% endif %} reviews)</p> 
             </div>
 
         </div>
@@ -73,7 +73,7 @@
         </div>
 
         <div class="business-content-wraper-right">
-            <div class="location">
+            <div class="location sidebar-box">
                 <h2>Location</h2>
                 <!-- address -->
                 <p><i class="fa-solid fa-map-location"></i>{% if business.address %}{{business.address}}{% else %}No Business address provided.{% endif %}</p>
@@ -108,6 +108,13 @@
                     {% endfor %}
 
                 </div>
+            </div>
+
+            <div class="times sidebar-box">
+                <h2>Working Hours</h2>
+                {% for hour in hours %}
+                <p><i class="fa-solid fa-clock"></i><strong>{{ hour.get_day_display }}: </strong>{{hour.open_time}} to {{hour.close_time}}</p>
+                {% endfor %}
             </div>
         </div>
 

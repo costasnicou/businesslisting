@@ -42,6 +42,18 @@ function load() {
 
 // Add a new post with given contents to DOM
 function add_listing(contents) {
+    const review_paragraph= document.createElement('p');
+
+    const review_stars_icon = `<i class="fa-solid fa-star"></i>`;
+    if(contents.reviews_stars_avg){
+        for (i=0; i< contents.reviews_stars_avg; i++){
+            review_paragraph.insertAdjacentHTML("afterbegin",review_stars_icon);
+            
+        };
+
+        review_paragraph.innerHTML = `${review_paragraph.innerHTML} (${contents.reviews_count} reviews)`;
+        
+    }
 
     const html = `
             <div class="business">
@@ -52,7 +64,12 @@ function add_listing(contents) {
                 background-size: cover;
                 background-position: center;
                 opacity: 0.9;
-                border-radius: 5px;">
+                border-radius: 5px;
+                position:relative;">
+                    <div class="list-reviews">
+                        <p>${review_paragraph.innerHTML !=""?review_paragraph.innerHTML:"(0 reviews)"}</p>
+                        
+                    </div>
 
                 </div>
 
@@ -72,7 +89,7 @@ function add_listing(contents) {
                     </div>
 
                     <div class="business_sub-details-right">
-                        <a href=""><i class="fa-solid fa-eye"></i></a>
+                        <a href="${window.location.origin}/business/${contents.title}"><i class="fa-solid fa-eye"></i></a>
                         <p class="tooltip">View More</p>
                     </div>
                 </div>
@@ -80,6 +97,7 @@ function add_listing(contents) {
     
     `;
 
+    
 
     // Add business to DOM
     businessWraper.insertAdjacentHTML("beforeend",html);
