@@ -132,6 +132,19 @@
              <hr>
             {% endif %}
            
+            <div class="reviews-area">
+                <h2>{{business.name}} - User Reviews</h2>
+                <div class="existing-reviews">
+                    {% for business_review in business_reviews %}
+                        <div class="full-review">
+                            <h3 class="review-user"><i class="fa-solid fa-user"></i>@{{business_review.user.username}}</h3>
+                            <p>{{business_review.description}}</p>
+                            <p class="user-review-stars"> {% for i in stars_range %} <i class="fa-solid fa-star"></i> {% empty %}{% endfor %} ({{business_review.stars}} Star Review)</p> 
+                        </div>
+
+                    {% endfor %}
+                </div>
+            </div>
 
         </div>
 

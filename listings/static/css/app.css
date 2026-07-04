@@ -923,7 +923,8 @@ hr {
         overflow: hidden;
         line-height: 1.4rem;
         font-weight: 300;
-        transition: height .8s ease-in-out; }
+        transition: height .8s ease-in-out;
+        margin-left: 10px; }
       .business-content-wraper-left h2 {
         font-size: 19px;
         color: #828282; }
@@ -937,7 +938,8 @@ hr {
         color: #353535;
         font-weight: 300;
         margin-bottom: 10px;
-        display: inline-block; }
+        display: inline-block;
+        margin-left: 10px; }
         .business-content-wraper-left .overview-read-more:link:hover, .business-content-wraper-left .overview-read-more:visited:hover {
           color: #191919; }
     .business-content-wraper-right {
@@ -972,7 +974,8 @@ hr {
   margin-bottom: 30px; }
   .photo-gallery-wraper {
     display: flex;
-    flex-wrap: wrap; }
+    flex-wrap: wrap;
+    margin-left: 10px; }
     .photo-gallery-wraper img {
       width: 200px;
       height: 150px;
@@ -1014,6 +1017,24 @@ hr {
   flex-basis: 33%;
   justify-content: start; }
   .business-partners-wraper .business:first-of-type {
-    margin-left: 0; }
+    margin-left: 10px; }
+
+.reviews-area .existing-reviews {
+  margin-left: 10px;
+  color: #5e5d5d; }
+  .reviews-area .existing-reviews .full-review {
+    border-bottom: 1px solid whitesmoke;
+    padding-bottom: 10px; }
+    .reviews-area .existing-reviews .full-review .review-user {
+      color: #5e5d5d;
+      font-weight: 300; }
+    .reviews-area .existing-reviews .full-review .review-user i {
+      margin-right: 5px;
+      color: #7f7f7f; }
+    .reviews-area .existing-reviews .full-review .user-review-stars i {
+      color: #7f7f7f; }
+  .reviews-area .existing-reviews .full-review p {
+    font-weight: 300;
+    width: 90%; }
 
 /*# sourceMappingURL=app.css.map */

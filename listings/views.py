@@ -480,7 +480,8 @@ def singlelisting(request,business_name):
         partners_range = 0
 
 
-    
+    business_reviews = business.business_reviews.all()
+
     
     
     
@@ -498,6 +499,7 @@ def singlelisting(request,business_name):
         "social":social,
         "hours":hours,
         "partners":partners,
+        "business_reviews":business_reviews,
            
     })
     

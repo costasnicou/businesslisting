@@ -137,7 +137,7 @@
                 line-height: 1.4rem;
                 font-weight: 300;
                 transition: height .8s ease-in-out;
-               
+                 margin-left: 10px;
             }
 
             h2{
@@ -160,6 +160,7 @@
                 font-weight: 300;
                 margin-bottom: 10px;
                 display: inline-block;
+                 margin-left: 10px;
                 &:hover{
                      color: rgb(25, 25, 25);
                   
@@ -167,6 +168,8 @@
                 }
                 
             }
+
+            
         }
 
         &-right{
@@ -231,7 +234,7 @@
     &-wraper{
         display: flex;
         flex-wrap: wrap;
-
+        margin-left: 10px;
         img{
             width: 200px;
             height: 150px;
@@ -292,6 +295,35 @@
     justify-content: start;
 
     .business:first-of-type{
-        margin-left: 0;
+        margin-left: 10px;
+    }
+}
+
+.reviews-area{
+    .existing-reviews{
+        margin-left: 10px;
+        color: rgb(94, 93, 93);
+        .full-review{
+            border-bottom: 1px solid whitesmoke;
+            padding-bottom: 10px;
+            .review-user{
+                color: rgb(94, 93, 93);
+                font-weight: 300;
+            }
+            .review-user i{
+                margin-right: 5px;
+                color: rgb(127, 127, 127);
+            }
+
+            .user-review-stars i{
+                color: rgb(127, 127, 127);
+            }
+        }
+        .full-review p{
+            font-weight: 300;
+            width: 90%;
+
+            
+        }
     }
 }
