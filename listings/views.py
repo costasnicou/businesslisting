@@ -376,6 +376,8 @@ def city(request,city_name):
 
     data = businesses[start:end]
 
+ 
+
     if request.GET and not "submit-filter" in request.GET and "page" not in request.GET:
        # Return list of posts
         return JsonResponse({
@@ -437,7 +439,7 @@ def city(request,city_name):
                     
                 })
 
-            elif not option_city:
+            elif not option_category:
                 return HttpResponseRedirect(reverse('city', kwargs={'city_name': city}))
 
     return render(request, "listings/city.html",{
@@ -464,9 +466,26 @@ def singlelisting(request,business_name):
     
     social = business.business_social_links.all()
     hours = business.hours.all()
-    # for hour in hours:
-    #     full_day = hour.weekdays_display()
+    partners = business.partners.all()
+    partners_range = ""
+    if partners.exists():
+        for partner in partners:
+            partner.featured_img = partner.business_images.filter(featured_img=True).first()
+            partner.reviews_count = partner.business_reviews.all().count()
+            partner.reviews_stars_avg = int(round(partner.business_reviews.aggregate(
+                avg=Avg("stars")
+            )["avg"] or 0))
+            partners_range = partner.reviews_stars_avg
+    else:
+        partners_range = 0
 
+
+    
+    
+    
+    
+    # .featured_img = business.business_images.filter(featured_img=True).first()
+    print(partners)
     return render(request, "listings/singlelisting.html",{
         "cities":cities,
         "categories":categories,
@@ -475,8 +494,10 @@ def singlelisting(request,business_name):
         "reviews_count":reviews_count,
         "reviews_stars_avg":reviews_stars_avg,
         "stars_range": range(reviews_stars_avg),
+        "partner_stars_range": range(partners_range),
         "social":social,
-        "hours":hours
+        "hours":hours,
+        "partners":partners,
            
     })
     

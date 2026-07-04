@@ -44,12 +44,17 @@
 <section class="business-content">
     <div class="business-content-wraper">
         <div class="business-content-wraper-left">
-            <article>
+            {% if business.desc %}
+            <article class="overview-article">
                 <h2>Overview</h2>
                 <p class="business-overview">{%  if business.desc %} {{business.desc}} {% else %} No business overview yet {% endif %}</p>
                 <a href="" class="overview-read-more">Read More &raquo;</a>
             </article>
+           
+            <hr>
+            {% endif %}
 
+           
             <div class="photo-gallery">
                 <h2>Photo Gallery</h2>
                 <div class="photo-gallery-wraper">
@@ -66,15 +71,73 @@
                    
                    
                 </div>
+    
                 <button class="close-img hidden">&times;</button>
                 <div class="overlay hidden"></div>
             </div>
+           
+            <!-- if section below show hr -->
+            <hr>       
+            {% if partners %}
+            <div class="business-parners">
+                <h2>Our Business Parnerships</h2>
+                <div class="business-partners-wraper">
+                    {% for partner in partners %}
+                    <div class="business">
+                        <div class="business--img" style="
+                        background: linear-gradient(rgba(56, 83, 136, 0.1),rgba(55, 81, 135, 0.1)), url({{partner.featured_img.image.url}});
+                        width:300px;
+                        height: 200px;
+                        background-size: cover;
+                        background-position: center;
+                        opacity: 0.9;
+                        border-radius: 5px;
+                        position: relative;"
+                        >
+                            <div class="list-reviews">
+                                <p>{% if partner_stars_range %}{% for i in partner_stars_range %} <i class="fa-solid fa-star"></i> {% empty %}{% endfor %} {% endif %} ({% if partner.reviews_count %}{{partner.reviews_count}} {% else %}0 {% endif %} reviews)</p> 
+                            </div>
+
+
+                        </div>
+
+                        <h3 class="business-title">{{partner.name}}</h3>
+                        <p class="business-desc">{{partner.desc|truncatewords:7}}</p>
+                        <div class="business-details">
+                            <p class="phone"><i class="fa-solid fa-phone-volume" style="color: rgb(0, 0, 0);"></i>{{partner.phone}}</p>
+                            <p class="city"><i class="fa-solid fa-location-pin" style="color: rgb(0, 0, 0);"></i>{{partner.city}}</p>
+                        </div>
+
+                        <div class="business_sub-details">
+                            <div class="featured_cat">
+                                {% if partner.category.cat_photo %}
+                                <img src="{{partner.category.cat_photo.url}}" alt="">
+                                {% endif %}
+                                <p>{{partner.category.cat_name}}</p>
+                            </div>
+
+                            <div class="business_sub-details-right">
+                                <a href="{% url 'singlelisting' partner.name %}"><i class="fa-solid fa-eye"></i></a>
+                                <p class="tooltip">View More</p>
+                            </div>
+                        </div>
+                    </div>
+                    {% empty %}
+                    <p>empty</p>
+
+                    {% endfor %}
+
+                </div>
+            </div>
+             <hr>
+            {% endif %}
+           
 
         </div>
 
         <div class="business-content-wraper-right">
             <div class="location sidebar-box">
-                <h2>Location</h2>
+                <h2>Contact</h2>
                 <!-- address -->
                 <p><i class="fa-solid fa-map-location"></i>{% if business.address %}{{business.address}}{% else %}No Business address provided.{% endif %}</p>
                 <!-- telephone -->

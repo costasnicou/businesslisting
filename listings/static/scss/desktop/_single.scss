@@ -150,11 +150,16 @@
                 margin-top: 0;
             }
 
+            hr{
+                width: 99%;
+                background-color: rgb(242, 242, 242);
+            }
             .overview-read-more:link,.overview-read-more:visited{
                 text-decoration: none;
                 color: rgb(53, 53, 53);
                 font-weight: 300;
-
+                margin-bottom: 10px;
+                display: inline-block;
                 &:hover{
                      color: rgb(25, 25, 25);
                   
@@ -222,7 +227,7 @@
 
 .photo-gallery{
     // padding: 40px 20px;
-
+    margin-bottom: 30px;
     &-wraper{
         display: flex;
         flex-wrap: wrap;
@@ -278,5 +283,15 @@
             color: rgb(204, 204, 204);
         }
 
+    }
+}
+
+.business-partners-wraper{
+    display: flex;
+    flex-basis: 33%;
+    justify-content: start;
+
+    .business:first-of-type{
+        margin-left: 0;
     }
 }

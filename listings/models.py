@@ -41,6 +41,8 @@ class Business(models.Model):
     # use for map location
     address = models.CharField(max_length=255)
     
+    def get_partners():
+        return self.partners.all()
 
     def __str__(self):
         return self.name

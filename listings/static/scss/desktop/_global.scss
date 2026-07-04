@@ -28,6 +28,8 @@ section{
         }
     }
 }
+
+
 .navigation{
     display: flex;
    
@@ -156,6 +158,8 @@ section{
 } 
 
 
+
+
 // pagination
 
 .pagination {
@@ -203,6 +207,129 @@ section{
     position: relative;
     right: 80px;
 }
+
+
+// business view listing styles
+.business{
+    flex-basis: 300px;
+    text-align: left;
+    margin: 10px;
+    padding: 10px;
+    background-color: rgb(249, 249, 249);
+    background-color: white;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    border: 1px solid  rgb(189, 189, 189);
+
+    .business--img .list-reviews{
+        position: absolute;
+        left: 5px;
+        bottom: 5px;
+        p{
+            margin: 0;
+            font-weight: bold;
+            color: white;
+
+        }
+    }
+    .business-details{
+        display: flex;
+        justify-content: space-between;
+        font-weight: 300;
+
+        p{
+            margin: 0;
+            
+            .fa-solid.fa-phone-volume,.fa-solid.fa-location-pin{
+                color: rgb(61, 102, 183) !important;
+                margin-right:10px;
+                // font-size: 20px;
+            }
+        }
+        .city{
+            margin-right: 10px;
+        }
+    }
+
+    .business-title{
+        margin-bottom: 0;
+        line-height: 10px;
+        font-size: 1rem;
+    }
+
+    .business-title,.business-desc{
+        font-weight: 300;
+    
+        
+    }
+
+    .business-desc{
+        font-size: 14px;
+    }
+
+    .business_sub-details{
+        border-top: 1px solid rgb(216, 216, 216);
+        margin-top: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .featured_cat{
+            margin: 0;
+            margin-top: 10px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            
+            p{
+                margin: 0;
+                margin-left: 5px;
+                    font-weight: 300;
+                
+            }
+
+            img{
+                width: 20px;
+                height: 20px;
+            }
+        }
+
+        &-right{
+            position: relative;
+            .tooltip{
+            display: none;
+            }
+
+    
+            a i.fa-solid.fa-eye{
+                color: rgb(61, 102, 183) !important;
+                margin-right:10px;
+                margin-top: 10px;
+            }
+
+            a:hover + .tooltip{
+                display: inline-block;
+                position: absolute;
+                background-color: #1d9aeeee;
+                background-color: rgb(215, 141, 2);
+                color: white;
+                width: 67px;
+                text-align: center;
+                right: -5px;
+                padding: 5px;
+                border-radius: 5px;
+                font-size: 10px;
+                bottom: 9px;
+                font-weight: bold;
+                                
+            }
+        }
+    }
+
+    
+}
+
+
+
 .footer{
     background-color: darken(rgb(82, 114, 167),1.5%);
     background-color: rgb(65, 65, 65);
