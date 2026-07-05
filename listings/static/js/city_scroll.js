@@ -54,6 +54,13 @@ function load() {
 
 };
 
+function loadBtnToNone(all_businesses){
+    console.log(all_businesses);
+    if(all_businesses==9){
+        loadMore.style.display = "none";
+    }
+}
+
 // Add a new post with given contents to DOM
 function add_listing(contents) {
 

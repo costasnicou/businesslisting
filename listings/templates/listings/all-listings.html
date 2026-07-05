@@ -11,12 +11,18 @@
         </hgroup>
 
         <div class="form-wraper">
+             <form action="{% url 'search' %}">
+                 {% csrf_token %} 
+                <input type="text" name="search" id="" placeholder="Search a business or a place">
+                <input type="submit" value="Search">
+                
+            </form>
 
         </div>
     </div>
 </div>
 
-<section class="all-businesses">
+<section class="all-businesses" >
     <div class="all-businesses-section-wraper">
         <aside class="aside-nav">
             <!-- form to filter by category -->
@@ -75,6 +81,7 @@
 
         <div class="all-businesses-main-content">
             <div class="all-businesses-frwraper">
+                <!-- pagination -->
                 {% if request.GET.category_select or request.GET.category_select == "none" %}
                     {% if request.GET.city_select or request.GET.city_select == "none" %}
                         {% for business in page_obj %}

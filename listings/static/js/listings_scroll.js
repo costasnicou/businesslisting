@@ -31,9 +31,15 @@ function load() {
     )
     .then(response => response.json())
     .then(data => {
-        data.businesses.forEach((business,index) => {
+        
+
+        data.businesses.forEach((business,index,results) => {
             add_listing(business);
-            if (index === data.businesses.length -1) loadMore.style.display = "none";
+        
+            if (index === results.length -1 || results == 0 ) {
+                loadMore.style.display = "none";
+            } 
+
         })
     });
 
@@ -103,3 +109,9 @@ function add_listing(contents) {
     businessWraper.insertAdjacentHTML("beforeend",html);
    
 };
+
+function loadBtnToNone(all_businesses){
+    if(all_businesses==9){
+        loadMore.style.display = "none";
+    }
+}

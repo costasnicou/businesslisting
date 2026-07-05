@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.contrib.auth import authenticate, login, logout
 from django.db import IntegrityError
 from django.http import HttpResponse, HttpResponseRedirect,JsonResponse
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.core.paginator import Paginator
 from .models import User
 from django.http import JsonResponse
@@ -33,6 +33,37 @@ def generateListings(request,listings):
         data.append(i)
 
     return data
+
+def search(request):
+    businesses = Business.objects.all()
+    business_names = [business.name for business in businesses]
+    qr = ""
+    qarr=[]
+    # print(business_names)
+    if request.GET["search"]:
+        qr=request.GET["search"]
+
+    if qr in business_names:
+        return redirect("singlelisting",business_name=qr)
+    else:
+        for business_name in business_names:
+            if qr in business_name:
+                business = Business.objects.get(name=business_name)
+                business.featured_img = business.business_images.filter(featured_img=True).first()
+                business.reviews_count = business.business_reviews.all().count()
+                business.reviews_stars_avg = int(round(business.business_reviews.aggregate(
+                    avg=Avg("stars")
+                )["avg"] or 0))
+                business.stars_range = range(business.reviews_stars_avg)
+                qarr.append(business)
+    
+   
+    return render(request,"listings/search.html",{
+        "qarr":qarr,
+    })
+
+
+
 
 def login_view(request):
     if request.method == "POST":
@@ -123,6 +154,8 @@ def all_listings(request):
     cities = City.objects.all()
     categories =  BusinessCategory.objects.all()
     businesses = Business.objects.all()
+    
+   
 
 
     # start and end of  listings
@@ -140,14 +173,10 @@ def all_listings(request):
         business.stars_range = range(business.reviews_stars_avg)
     data = businesses[start:end]
 
-
-
-
-
-
     if request.GET and not "submit-filter" in request.GET and "page" not in request.GET:
        # Return list of posts
         return JsonResponse({
+            
             "businesses": [
                 {
                     "id": business.id,
@@ -168,12 +197,11 @@ def all_listings(request):
                     "reviews_stars_avg":business.reviews_stars_avg
                     if business.reviews_stars_avg
                         else None,
-                   
-
-
                 }
                 for business in data
-            ]
+
+            ],
+          
         })
 
 
@@ -249,12 +277,11 @@ def all_listings(request):
             elif not option_city and not option_category:
                 return HttpResponseRedirect("all-listings")
                
-
-
     return render(request, "listings/all-listings.html",{
         "cities":cities,
         "categories":categories,
         "businesses":data,
+        "businesseslength":len(businesses),
     })
 
 def category(request,cat_name):
@@ -351,6 +378,7 @@ def category(request,cat_name):
         "categories":categories,
         "category":category,
         "businesses":data,
+        "businesseslength":len(businesses),
        
     })
 
@@ -448,6 +476,7 @@ def city(request,city_name):
         "categories":categories,
         "category":category,
         "businesses":data,
+        "businesseslength":len(businesses),
        
     })
 

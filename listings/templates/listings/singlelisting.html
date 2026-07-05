@@ -1,6 +1,6 @@
 {% extends 'listings/base.html' %}
 {% load static %}
-{% block title %}  Homepage {% endblock %}
+{% block title %} Homepage {% endblock %}
 {% block main %}
 <div class="business-cover" style="
     background: linear-gradient(45deg,rgba(39, 39, 39, .35),rgba(46, 46, 46, 0.35)), url({{business.featured_img.image.url}});
@@ -17,26 +17,27 @@
 ">
 
 
-    <div class="cover_details"> 
+    <div class="cover_details">
         <div class="cover_details-left">
             <h1>{{business.name}}</h1>
             <div class="first-class">
 
-                <p><i class="fa-solid fa-phone-volume" ></i>{{business.phone}}</p>
-                <p><i class="fa-solid fa-location-pin" ></i>{{business.city}}</p>
+                <p><i class="fa-solid fa-phone-volume"></i>{{business.phone}}</p>
+                <p><i class="fa-solid fa-location-pin"></i>{{business.city}}</p>
             </div>
 
             <div class="reviews-count">
-               <p> {% for i in stars_range %} <i class="fa-solid fa-star"></i> {% empty %}{% endfor %} ({% if reviews_count %}{{reviews_count}} {% else %}0 {% endif %} reviews)</p> 
+                <p> {% for i in stars_range %} <i class="fa-solid fa-star"></i> {% empty %}{% endfor %} ({% if reviews_count %}{{reviews_count}} {% else %}0 {% endif %} reviews)</p>
             </div>
 
         </div>
 
         <div class="cover_details-right">
-            {% if business.website %}<p class="website"><a class="website-link" target="_blank" href="{{business.website}}"><i class="fa-solid fa-globe"></i></a> <span>Website</span></p>{% endif %}
+            {% if business.website %}<p class="website"><a class="website-link" target="_blank"
+                    href="{{business.website}}"><i class="fa-solid fa-globe"></i></a> <span>Website</span></p>{% endif %}
             <a href="" class="submit-review">Submit Review</a>
         </div>
-        
+
     </div>
 
 </div>
@@ -47,37 +48,40 @@
             {% if business.desc %}
             <article class="overview-article">
                 <h2>Overview</h2>
-                <p class="business-overview">{%  if business.desc %} {{business.desc}} {% else %} No business overview yet {% endif %}</p>
+                <p class="business-overview">{% if business.desc %} {{business.desc}} {% else %} No business overview yet {% endif %}</p>
                 <a href="" class="overview-read-more">Read More &raquo;</a>
             </article>
-           
+
             <hr>
             {% endif %}
 
-           
+
             <div class="photo-gallery">
                 <h2>Photo Gallery</h2>
                 <div class="photo-gallery-wraper">
-                    
-                    {% for img in gallery %}
-                        <img class="gal-img" src="{{img.image.url}}" alt="">
 
-                        {% empty %}
-                            <img class="gal-img" src="{{business.featured_img.image.url}}" alt="">
+                    {% for img in gallery %}
+                    <img class="gal-img" src="{{img.image.url}}" alt="">
+
+                    {% empty %}
+                    <img class="gal-img" src="{{business.featured_img.image.url}}" alt="">
                     {% endfor %}
 
-                  
-                        
-                   
-                   
+
+
+
+
                 </div>
-    
+
                 <button class="close-img hidden">&times;</button>
                 <div class="overlay hidden"></div>
             </div>
-           
+
             <!-- if section below show hr -->
-            <hr>       
+            {% if partners or business_reviews %}
+            <hr>
+            {% endif %}
+            
             {% if partners %}
             <div class="business-parners">
                 <h2>Our Business Parnerships</h2>
@@ -92,10 +96,10 @@
                         background-position: center;
                         opacity: 0.9;
                         border-radius: 5px;
-                        position: relative;"
-                        >
+                        position: relative;">
                             <div class="list-reviews">
-                                <p>{% if partner_stars_range %}{% for i in partner_stars_range %} <i class="fa-solid fa-star"></i> {% empty %}{% endfor %} {% endif %} ({% if partner.reviews_count %}{{partner.reviews_count}} {% else %}0 {% endif %} reviews)</p> 
+                                <p>{% if partner_stars_range %}{% for i in partner_stars_range %} <i class="fa-solid fa-star"></i> {% empty %}{% endfor %} {% endif %} ({% if partner.reviews_count %}{{partner.reviews_count}} {% else %}0 {% endif %} reviews)
+                                </p>
                             </div>
 
 
@@ -104,8 +108,10 @@
                         <h3 class="business-title">{{partner.name}}</h3>
                         <p class="business-desc">{{partner.desc|truncatewords:7}}</p>
                         <div class="business-details">
-                            <p class="phone"><i class="fa-solid fa-phone-volume" style="color: rgb(0, 0, 0);"></i>{{partner.phone}}</p>
-                            <p class="city"><i class="fa-solid fa-location-pin" style="color: rgb(0, 0, 0);"></i>{{partner.city}}</p>
+                            <p class="phone"><i class="fa-solid fa-phone-volume"
+                                    style="color: rgb(0, 0, 0);"></i>{{partner.phone}}</p>
+                            <p class="city"><i class="fa-solid fa-location-pin"
+                                    style="color: rgb(0, 0, 0);"></i>{{partner.city}}</p>
                         </div>
 
                         <div class="business_sub-details">
@@ -129,41 +135,44 @@
 
                 </div>
             </div>
-             <hr>
+            <hr>
             {% endif %}
-           
+
+            {% if business_reviews %}
             <div class="reviews-area">
-                <h2>{{business.name}} - User Reviews</h2>
+                <h2>What they Say About Us</h2>
                 <div class="existing-reviews">
                     {% for business_review in business_reviews %}
-                        <div class="full-review">
-                            <h3 class="review-user"><i class="fa-solid fa-user"></i>@{{business_review.user.username}}</h3>
-                            <p>{{business_review.description}}</p>
-                            <p class="user-review-stars"> {% for i in stars_range %} <i class="fa-solid fa-star"></i> {% empty %}{% endfor %} ({{business_review.stars}} Star Review)</p> 
-                        </div>
+                    <div class="full-review">
+                        <h3 class="review-user"><i class="fa-solid fa-user"></i>@{{business_review.user.username}}</h3>
+                        <p>{{business_review.description}}</p>
+                        <p class="user-review-stars"> {% for i in stars_range %} <i class="fa-solid fa-star"></i> {% empty %}{% endfor %} ({{business_review.stars}} Star Rating)</p>
+                    </div>
 
                     {% endfor %}
                 </div>
             </div>
+            {% endif %}
 
         </div>
 
         <div class="business-content-wraper-right">
-            <div class="location sidebar-box">
-                <h2>Contact</h2>
-                <!-- address -->
-                <p><i class="fa-solid fa-map-location"></i>{% if business.address %}{{business.address}}{% else %}No Business address provided.{% endif %}</p>
-                <!-- telephone -->
-                <p><i class="fa-solid fa-phone"></i>{% if business.phone%}{{business.phone}}{% else %}No business phone provided {% endif %}</p>
-                <!-- email -->
-                <p><i class="fa-solid fa-envelope"></i>{% if business.email %}{{business.email}}{%else %}No business email provided.{% endif %}</p>
-                <!-- website -->
-                <p><i class="fa-solid fa-link"></i>{% if business.website %}<a href="{{business.website}}">{{business.website}}</a>{% else %}No Website provided.{% endif %}</p>
+            <div class="sticky-sidebar">
+                <div class="location sidebar-box">
+                    <h2>Contact</h2>
+                    <!-- address -->
+                    <p><i class="fa-solid fa-map-location"></i>{% if business.address %}{{business.address}}{% else %}No Business address provided.{% endif %}</p>
+                    <!-- telephone -->
+                    <p><i class="fa-solid fa-phone"></i>{% if business.phone%}{{business.phone}}{% else %}No business phone provided {% endif %}</p>
+                    <!-- email -->
+                    <p><i class="fa-solid fa-envelope"></i>{% if business.email %}{{business.email}}{%else %}No business email provided.{% endif %}</p>
+                    <!-- website -->
+                    <p><i class="fa-solid fa-link"></i>{% if business.website %}<a href="{{business.website}}">{{business.website}}</a>{% else %}No Website provided.{% endif %}</p>
 
-                <!-- social -->
-                <div class="business-social">
-                    
-                    {% for platform in social %}
+                    <!-- social -->
+                    <div class="business-social">
+
+                        {% for platform in social %}
                         <a href="{{platform.url}}" target="_blank">
                             {% if platform.network == 'facebook' %}
                             <i class="fa-brands fa-facebook"></i>
@@ -181,17 +190,21 @@
                         </a>
                         {% empty %}
                         <p>No Social links provided</p>
-                    {% endfor %}
+                        {% endfor %}
 
+                    </div>
                 </div>
+
+                <div class="times sidebar-box">
+                    <h2>Working Hours</h2>
+                    {% for hour in hours %}
+                    <p><i class="fa-solid fa-clock"></i><strong>{{ hour.get_day_display }}: </strong>{{hour.open_time}} to {{hour.close_time}}</p>
+                    {% endfor %}
+                </div>
+
+
             </div>
 
-            <div class="times sidebar-box">
-                <h2>Working Hours</h2>
-                {% for hour in hours %}
-                <p><i class="fa-solid fa-clock"></i><strong>{{ hour.get_day_display }}: </strong>{{hour.open_time}} to {{hour.close_time}}</p>
-                {% endfor %}
-            </div>
         </div>
 
     </div>
@@ -200,5 +213,5 @@
 {% endblock %}
 
 {% block scripts %}
-    <script src="{% static 'js/business.js' %}"></script>
+<script src="{% static 'js/business.js' %}"></script>
 {% endblock %}

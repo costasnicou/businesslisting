@@ -277,13 +277,44 @@ section .section-intro {
       line-height: 1.5rem; }
     .hm-cover .hm-cover-content .form-wraper {
       width: 55%;
-      background-color: white;
-      border-radius: 50px;
       margin: 0 auto;
       height: 60px;
       margin-top: 40px;
       -webkit-box-shadow: 5px 5px 17px 4px rgba(0, 0, 0, 0.26);
-      box-shadow: 5px 5px 17px 4px rgba(0, 0, 0, 0.26); }
+      box-shadow: 5px 5px 17px 4px rgba(0, 0, 0, 0.26);
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+      .hm-cover .hm-cover-content .form-wraper form {
+        width: 100%;
+        position: relative; }
+        .hm-cover .hm-cover-content .form-wraper form input[type="text"] {
+          height: 60px;
+          border-radius: 50px;
+          width: 100%;
+          font-size: 18.5px;
+          text-align: center;
+          color: #5a5a5a;
+          border: none; }
+          .hm-cover .hm-cover-content .form-wraper form input[type="text"]:focus {
+            outline: none; }
+          .hm-cover .hm-cover-content .form-wraper form input[type="text"]::placeholder {
+            font-size: 18.5px;
+            text-align: center; }
+        .hm-cover .hm-cover-content .form-wraper form input[type="submit"] {
+          position: absolute;
+          top: 50%;
+          right: 1.5%;
+          transform: translate(0, -50%);
+          background-color: #3d66b7;
+          padding: 10px 20px;
+          color: white;
+          border: none;
+          border-radius: 50px;
+          transition: all .4s; }
+          .hm-cover .hm-cover-content .form-wraper form input[type="submit"]:hover {
+            background-color: #375ba4;
+            cursor: pointer; }
   .hm-cover .featured-intro {
     text-align: center;
     color: white;
@@ -437,6 +468,8 @@ section .section-intro {
             font-weight: bold; }
     .featured-listings .featured-listings-fwraper > *:not(:last-of-type) {
       margin-right: 20px; }
+    .featured-listings .featured-listings-fwraper > *:first-of-type {
+      margin-left: 25px; }
   .featured-listings .view-all-listings:link, .featured-listings .view-all-listings:visited {
     color: #5272a7;
     text-decoration: none; }
@@ -678,13 +711,44 @@ section .section-intro {
       line-height: 1.5rem; }
     .all-listings-cover-content .form-wraper {
       width: 55%;
-      background-color: white;
-      border-radius: 50px;
       margin: 0 auto;
       height: 60px;
       margin-top: 40px;
       -webkit-box-shadow: 5px 5px 17px 4px rgba(0, 0, 0, 0.26);
-      box-shadow: 5px 5px 17px 4px rgba(0, 0, 0, 0.26); }
+      box-shadow: 5px 5px 17px 4px rgba(0, 0, 0, 0.26);
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+      .all-listings-cover-content .form-wraper form {
+        width: 100%;
+        position: relative; }
+        .all-listings-cover-content .form-wraper form input[type="text"] {
+          height: 60px;
+          border-radius: 50px;
+          width: 100%;
+          font-size: 18.5px;
+          text-align: center;
+          color: #5a5a5a;
+          border: none; }
+          .all-listings-cover-content .form-wraper form input[type="text"]:focus {
+            outline: none; }
+          .all-listings-cover-content .form-wraper form input[type="text"]::placeholder {
+            font-size: 18.5px;
+            text-align: center; }
+        .all-listings-cover-content .form-wraper form input[type="submit"] {
+          position: absolute;
+          top: 50%;
+          right: 1.5%;
+          transform: translate(0, -50%);
+          background-color: #3d66b7;
+          padding: 10px 20px;
+          color: white;
+          border: none;
+          border-radius: 50px;
+          transition: all .4s; }
+          .all-listings-cover-content .form-wraper form input[type="submit"]:hover {
+            background-color: #375ba4;
+            cursor: pointer; }
 
 .all-businesses {
   text-align: center;
@@ -914,7 +978,10 @@ hr {
     width: 75%;
     margin: 0 auto; }
     .business-content-wraper-left {
-      width: 75%; }
+      width: 75%;
+      border: 1px solid #e5e5e5;
+      border-radius: 8px;
+      padding: 20px; }
       .business-content-wraper-left p, .business-content-wraper-left h2 {
         color: #5e5d5d; }
       .business-content-wraper-left .business-overview {
@@ -944,31 +1011,37 @@ hr {
           color: #191919; }
     .business-content-wraper-right {
       width: 25%;
-      padding: 0 20px; }
-      .business-content-wraper-right .sidebar-box {
-        font-weight: 300;
-        padding: 30px;
-        border: 1px solid #e5e5e5; }
-        .business-content-wraper-right .sidebar-box h2 {
-          font-size: 19px;
-          color: #828282;
-          margin-top: 0; }
-        .business-content-wraper-right .sidebar-box p, .business-content-wraper-right .sidebar-box a:link, .business-content-wraper-right .sidebar-box a:visited {
-          color: #5c5b5b;
-          font-weight: 300; }
-        .business-content-wraper-right .sidebar-box:not(:last-of-type) {
-          margin-bottom: 15px; }
-        .business-content-wraper-right .sidebar-box p i {
-          color: #aeaeae;
-          margin-right: 10px; }
-      .business-content-wraper-right .location .business-social a:link, .business-content-wraper-right .location .business-social a:visited {
-        text-decoration: none;
-        font-size: 25px;
-        color: #737373; }
-        .business-content-wraper-right .location .business-social a:link:not(:last-of-type), .business-content-wraper-right .location .business-social a:visited:not(:last-of-type) {
-          margin-right: 5px; }
-        .business-content-wraper-right .location .business-social a:link:hover, .business-content-wraper-right .location .business-social a:visited:hover {
-          color: #151515; }
+      padding: 0 20px;
+      position: relative; }
+      .business-content-wraper-right .sticky-sidebar {
+        position: sticky;
+        top: 150px; }
+        .business-content-wraper-right .sticky-sidebar > * {
+          border-radius: 8px; }
+        .business-content-wraper-right .sticky-sidebar .sidebar-box {
+          font-weight: 300;
+          padding: 30px;
+          border: 1px solid #e5e5e5; }
+          .business-content-wraper-right .sticky-sidebar .sidebar-box h2 {
+            font-size: 19px;
+            color: #828282;
+            margin-top: 0; }
+          .business-content-wraper-right .sticky-sidebar .sidebar-box p, .business-content-wraper-right .sticky-sidebar .sidebar-box a:link, .business-content-wraper-right .sticky-sidebar .sidebar-box a:visited {
+            color: #5c5b5b;
+            font-weight: 300; }
+          .business-content-wraper-right .sticky-sidebar .sidebar-box:not(:last-of-type) {
+            margin-bottom: 15px; }
+          .business-content-wraper-right .sticky-sidebar .sidebar-box p i {
+            color: #aeaeae;
+            margin-right: 10px; }
+        .business-content-wraper-right .sticky-sidebar .location .business-social a:link, .business-content-wraper-right .sticky-sidebar .location .business-social a:visited {
+          text-decoration: none;
+          font-size: 25px;
+          color: #737373; }
+          .business-content-wraper-right .sticky-sidebar .location .business-social a:link:not(:last-of-type), .business-content-wraper-right .sticky-sidebar .location .business-social a:visited:not(:last-of-type) {
+            margin-right: 5px; }
+          .business-content-wraper-right .sticky-sidebar .location .business-social a:link:hover, .business-content-wraper-right .sticky-sidebar .location .business-social a:visited:hover {
+            color: #151515; }
 
 .photo-gallery {
   margin-bottom: 30px; }
@@ -1027,7 +1100,8 @@ hr {
     padding-bottom: 10px; }
     .reviews-area .existing-reviews .full-review .review-user {
       color: #5e5d5d;
-      font-weight: 300; }
+      font-weight: 300;
+      font-size: 16.5px; }
     .reviews-area .existing-reviews .full-review .review-user i {
       margin-right: 5px;
       color: #7f7f7f; }
@@ -1036,5 +1110,21 @@ hr {
   .reviews-area .existing-reviews .full-review p {
     font-weight: 300;
     width: 90%; }
+
+.all-businesses.search {
+  background-color: #fcfcfc; }
+
+.all-businesses-section-wraper.search {
+  width: 85%; }
+  .all-businesses-section-wraper.search .search-businesses-main-content {
+    width: 100%; }
+    .all-businesses-section-wraper.search .search-businesses-main-content h3 {
+      font-weight: 300; }
+    .all-businesses-section-wraper.search .search-businesses-main-content .search-businesses-frwraper {
+      display: flex;
+      justify-content: flex-start;
+      width: 85%;
+      margin: 0 auto;
+      flex-wrap: wrap; }
 
 /*# sourceMappingURL=app.css.map */

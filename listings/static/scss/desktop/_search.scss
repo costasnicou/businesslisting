@@ -1,0 +1,24 @@
+.all-businesses.search{
+     background-color: rgb(252, 252, 252);
+}
+
+.all-businesses-section-wraper.search{
+    width: 85%;
+
+    .search-businesses-main-content{
+        h3{
+            font-weight: 300;
+        }
+        width: 100%;
+       
+        .search-businesses-frwraper{
+            display: flex;
+            justify-content: flex-start;
+            width: 85%;
+            margin: 0 auto;
+            flex-wrap: wrap;
+        
+
+        }
+    }
+}

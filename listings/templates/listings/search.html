@@ -1,0 +1,96 @@
+{% extends 'listings/base.html' %}
+{% load static %}
+{% block title %}  Homepage {% endblock %}
+{% block main %}
+
+<div class="all-listings-cover">
+    <div class="all-listings-cover-content">
+        <hgroup>
+            <h1>The Perfect Place is Waiting for You</h1>
+            <h2>Find great places to stay, eat, shop or visit from local experts.</h2>
+        </hgroup>
+
+        <div class="form-wraper">
+            <form action="{% url 'search' %}">
+                 {% csrf_token %} 
+                <input type="text" name="search" id="" placeholder="Search a business or a place">
+                <input type="submit" value="Search">
+                
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<section class="all-businesses search" >
+    <div class="all-businesses-section-wraper search">
+  
+
+        <div class="search-businesses-main-content">
+            <h3>Search Results</h3>
+            <div class="search-businesses-frwraper">
+              
+                {% for business in qarr %}
+                <div class="business">
+                    <div class="business--img" style="
+                    background: linear-gradient(rgba(39, 39, 39, 0.15),rgba(46, 46, 46, 0.15)), url({{business.featured_img.image.url}});
+                    width:300px;
+                    height: 200px;
+                    background-size: cover;
+                    background-position: center;
+                    opacity: 0.9;
+                    border-radius: 5px;
+                    position: relative;">
+                        <div class="list-reviews">
+                            <p> {%  for i in business.stars_range %} <i class="fa-solid fa-star"></i> {% empty %}{% endfor %} ({% if business.reviews_count %}{{business.reviews_count}} {% else %}0 {% endif %} reviews)</p> 
+                        </div>
+
+                    </div>
+
+                    <h3 class="business-title">{{business.name}}</h3>
+                    <p class="business-desc">{{business.desc|truncatewords:7}}</p>
+                    <div class="business-details">
+                        <p class="phone"><i class="fa-solid fa-phone-volume" style="color: rgb(0, 0, 0);"></i>{{business.phone}}</p>
+                        <p class="city"><i class="fa-solid fa-location-pin" style="color: rgb(0, 0, 0);"></i>{{business.city}}</p>
+                    </div>
+
+                    <div class="business_sub-details">
+                        <div class="featured_cat">
+                            {% if business.category.cat_photo %}
+                            <img src="{{business.category.cat_photo.url}}" alt="">
+                            {% endif %}
+                            <p>{{business.category.cat_name}}</p>
+                        </div>
+
+                        <div class="business_sub-details-right">
+                            <a href="{% url 'singlelisting' business.name %}"><i class="fa-solid fa-eye"></i></a>
+                            <p class="tooltip">View More</p>
+                        </div>
+                    </div>
+                </div>
+
+                {% empty %}
+                <!-- <h3 class="no-results">No Results Found</h3> -->
+
+                {% endfor %}
+                   
+
+                
+               
+            </div>
+
+           
+
+        </div>
+       
+       
+    </div>
+     
+</section>
+
+
+{% endblock %}
+
+{% block scripts %}
+ <script src="{% static 'js/listings_scroll.js' %}"></script>
+{% endblock %}
