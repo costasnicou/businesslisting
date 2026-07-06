@@ -45,6 +45,7 @@ def search(request):
 
     if qr in business_names:
         return redirect("singlelisting",business_name=qr)
+    
     else:
         for business_name in business_names:
             if qr in business_name:
@@ -56,6 +57,16 @@ def search(request):
                 )["avg"] or 0))
                 business.stars_range = range(business.reviews_stars_avg)
                 qarr.append(business)
+            if len(qarr) == 0:
+                cities = City.objects.all()
+                categories =  BusinessCategory.objects.all()
+                return render(request, "listings/404.html", {
+                    "cities":cities,
+                    "categories":categories,
+                },status=404)
+            
+
+    
     
    
     return render(request,"listings/search.html",{

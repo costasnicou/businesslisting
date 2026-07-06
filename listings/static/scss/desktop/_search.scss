@@ -22,3 +22,38 @@
         }
     }
 }
+
+// error page
+
+.main-error{
+    min-height: 85vh;
+    padding: 40px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    h1,h2{
+        font-weight: 300;
+        color: rgb(93, 93, 93);
+
+    }
+
+    h1{
+        font-size: 80px;
+        margin-bottom: 0;
+        line-height: 5rem;
+        
+
+    }
+
+    h2{
+        font-size: 40px;
+    }
+
+    i{
+        font-size: 80px;
+        color: rgb(93, 93, 93);
+    }
+}

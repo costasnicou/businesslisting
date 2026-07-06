@@ -1127,4 +1127,25 @@ hr {
       margin: 0 auto;
       flex-wrap: wrap; }
 
+.main-error {
+  min-height: 85vh;
+  padding: 40px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+  .main-error h1, .main-error h2 {
+    font-weight: 300;
+    color: #5d5d5d; }
+  .main-error h1 {
+    font-size: 80px;
+    margin-bottom: 0;
+    line-height: 5rem; }
+  .main-error h2 {
+    font-size: 40px; }
+  .main-error i {
+    font-size: 80px;
+    color: #5d5d5d; }
+
 /*# sourceMappingURL=app.css.map */
