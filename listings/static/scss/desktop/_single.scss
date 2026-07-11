@@ -7,12 +7,8 @@
     bottom: 75px;
     align-items: center;
     background-color: rgba(59, 59, 59, 0.050);
-    // background-color:  #527bcd;
-    // background-color:  #474747;
-    // border: 2px solid #626987;;
     margin: 0 auto;
     left: 12%;
-    // transform: translateX(%);
     padding: 10px 20px;
     border-radius: 8px;
 }
@@ -51,7 +47,7 @@
 
     .reviews-count{
         p i{
-            color: white;
+           color: rgb(255, 209, 56);
             margin-right: 5px;
         }
     }
@@ -333,7 +329,7 @@
             }
 
             .user-review-stars i{
-                color: rgb(127, 127, 127);
+                color: rgb(255, 209, 56);
             }
         }
         .full-review p{
@@ -343,4 +339,56 @@
             
         }
     }
+}
+
+.add-review{
+    h3{
+        font-size: 19px;
+        color: #828282;
+
+    }
+
+    &-form{
+        margin-left: 10px;
+        // border: 1px solid #e5e5e5;
+        // border-radius: 8px;
+        // padding: 20px;
+
+    }
+
+    .form-field:not(:last-of-type){
+        margin-bottom: 10px;
+    }
+
+    .form-control{
+        width: 90%;
+        padding: 10px 20px;
+        border-radius: 5px;
+    }
+
+    .review-desc-field{
+        height: 250px;
+    }
+
+    .submit-review-btn{
+        padding: 10px 20px;
+        background-color: #5272a7;
+        border: none;
+        color: white;
+        border-radius: 4px;
+        margin-top: 10px;
+
+        &:hover{
+            background-color: #4a6696;  
+        }
+    }
+
+    .not-loggedin-review:link,.not-loggedin-review:visited{
+        color: #828282;
+
+        &:hover{
+            color: #585858;
+        }
+    }
+
 }

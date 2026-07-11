@@ -1,6 +1,7 @@
 html{
     scrollbar-color: rgb(38, 103, 168) rgb(209, 209, 209);
     scrollbar-width: thin;
+    scroll-behavior: smooth;
 }
 html,body{
     margin: 0;
@@ -229,6 +230,10 @@ section{
             margin: 0;
             font-weight: bold;
             color: white;
+
+            i{
+                color: rgb(255, 209, 56);
+            }
 
         }
     }

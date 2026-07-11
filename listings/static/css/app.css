@@ -1,6 +1,7 @@
 html {
   scrollbar-color: #2667a8 #d1d1d1;
-  scrollbar-width: thin; }
+  scrollbar-width: thin;
+  scroll-behavior: smooth; }
 
 html, body {
   margin: 0;
@@ -152,6 +153,8 @@ section .section-intro {
       margin: 0;
       font-weight: bold;
       color: white; }
+      .business .business--img .list-reviews p i {
+        color: #ffd138; }
   .business .business-details {
     display: flex;
     justify-content: space-between;
@@ -929,7 +932,7 @@ hr {
   .cover_details-left .first-class p:last-of-type {
     margin-left: 10px; }
 .cover_details-left .reviews-count p i {
-  color: white;
+  color: #ffd138;
   margin-right: 5px; }
 
 .cover_details-right {
@@ -1106,10 +1109,37 @@ hr {
       margin-right: 5px;
       color: #7f7f7f; }
     .reviews-area .existing-reviews .full-review .user-review-stars i {
-      color: #7f7f7f; }
+      color: #ffd138; }
   .reviews-area .existing-reviews .full-review p {
     font-weight: 300;
     width: 90%; }
+
+.add-review h3 {
+  font-size: 19px;
+  color: #828282; }
+.add-review-form {
+  margin-left: 10px; }
+.add-review .form-field:not(:last-of-type) {
+  margin-bottom: 10px; }
+.add-review .form-control {
+  width: 90%;
+  padding: 10px 20px;
+  border-radius: 5px; }
+.add-review .review-desc-field {
+  height: 250px; }
+.add-review .submit-review-btn {
+  padding: 10px 20px;
+  background-color: #5272a7;
+  border: none;
+  color: white;
+  border-radius: 4px;
+  margin-top: 10px; }
+  .add-review .submit-review-btn:hover {
+    background-color: #4a6696; }
+.add-review .not-loggedin-review:link, .add-review .not-loggedin-review:visited {
+  color: #828282; }
+  .add-review .not-loggedin-review:link:hover, .add-review .not-loggedin-review:visited:hover {
+    color: #585858; }
 
 .all-businesses.search {
   background-color: #fcfcfc; }

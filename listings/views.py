@@ -13,6 +13,7 @@ import datetime
 from django.urls import reverse
 from .models import *
 from django.db.models import Avg
+from .forms import AddReview
 # Create your views here.
 data = []
 page_obj=""
@@ -73,9 +74,6 @@ def search(request):
         "qarr":qarr,
     })
 
-
-
-
 def login_view(request):
     if request.method == "POST":
 
@@ -99,7 +97,6 @@ def login_view(request):
             "cities":cities,
             "categories":categories,
         })
-
 
 def logout_view(request):
     logout(request)
@@ -136,7 +133,6 @@ def register(request):
             "categories":categories
         })
 
-
 def index(request):
     cities = City.objects.all()
     categories =  BusinessCategory.objects.all()
@@ -159,7 +155,6 @@ def index(request):
         # # "reviews_stars_avg":reviews_stars_avg,
         # "stars_range": range(reviews_stars_avg),
     })
-
 
 def all_listings(request):
     cities = City.objects.all()
@@ -490,12 +485,10 @@ def city(request,city_name):
         "businesseslength":len(businesses),
        
     })
-
-    
+  
 def singlelisting(request,business_name):
     cities = City.objects.all()
     categories =  BusinessCategory.objects.all()
-
     business = Business.objects.get(name=business_name)
     business.featured_img = business.business_images.filter(featured_img=True).first()
     gallery = business.business_images.filter(featured_img=False)[0:4]
@@ -520,13 +513,25 @@ def singlelisting(request,business_name):
         partners_range = 0
 
 
-    business_reviews = business.business_reviews.all()
+    business_reviews = business.business_reviews.all().order_by('-creation_time')
+    existing_reviews_usernames = [business_review.user.username for business_review in business_reviews]
+    existing_partner_usernames = [partner.user.username for partner in partners]
+    reviewForm = AddReview()
+
+    if request.method == "POST":
+        reviewForm = AddReview(request.POST)
+        if reviewForm.is_valid():
+            valid_data = reviewForm.cleaned_data
+            if valid_data["stars"] and valid_data["description"]:
+                stars = valid_data["stars"]
+                description = valid_data["description"]
+                record =  BusinessReview(user=request.user, stars=stars,description=description,business=business)
+            record.save()
+            return HttpResponseRedirect(reverse("singlelisting" ,args=[business.name]))
+
 
     
     
-    
-    # .featured_img = business.business_images.filter(featured_img=True).first()
-    print(partners)
     return render(request, "listings/singlelisting.html",{
         "cities":cities,
         "categories":categories,
@@ -540,6 +545,9 @@ def singlelisting(request,business_name):
         "hours":hours,
         "partners":partners,
         "business_reviews":business_reviews,
+        "reviewForm":reviewForm,
+        "existing_reviews_usernames":existing_reviews_usernames,
+        "existing_partner_usernames":existing_partner_usernames,
            
     })
     

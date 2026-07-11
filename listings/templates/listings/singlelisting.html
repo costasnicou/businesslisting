@@ -34,8 +34,14 @@
 
         <div class="cover_details-right">
             {% if business.website %}<p class="website"><a class="website-link" target="_blank"
-                    href="{{business.website}}"><i class="fa-solid fa-globe"></i></a> <span>Website</span></p>{% endif %}
-            <a href="" class="submit-review">Submit Review</a>
+                    href="{{business.website}}"><i class="fa-solid fa-globe"></i></a> <span>Website</span></p>
+            {% endif %}
+            
+            {% if user.is_authenticated %}
+            {% if request.user.username not in existing_reviews_usernames and request.user.username != business.user.username and request.user.username not in existing_partner_usernames %}
+            <a href="#add-review-area" class="submit-review">Add a Review</a>
+            {% endif %}
+            {% endif %}
         </div>
 
     </div>
@@ -151,9 +157,51 @@
 
                     {% endfor %}
                 </div>
+
+              
             </div>
             {% endif %}
 
+            <!-- if user is logged in 
+             if user is not the owner of the listing
+             if user is not a business partner 
+             if the user hasn't submitted a review-->
+            
+            <div id="add-review-area" class="add-review">
+                {% if user.is_authenticated %}
+                    {% if request.user.username not in existing_reviews_usernames and request.user.username != business.user.username and request.user.username not in existing_partner_usernames %}
+                    <h3>Add a Review</h3>
+                
+                    
+                    <form action="{% url 'singlelisting' business.name %}" method="POST" class="add-review-form">
+                        {% csrf_token %}
+                        <div class="form-field">
+                            {{reviewForm.stars}}
+                        </div>
+                    
+
+                        <div class="form-field">
+                            {{reviewForm.description}}
+                        </div>
+
+                        <input class="submit-review-btn" type="submit" value="Submit Review">
+                        
+
+                    </form>
+                    {% endif %}
+                
+                {% else %}
+                    <h3>Add a Review</h3>
+                    <a class="not-loggedin-review" href="{% url 'login' %}">Sign in to add a Review</a>
+                {% endif %}
+            </div>
+                
+
+
+      
+      
+             
+                
         </div>
 
         <div class="business-content-wraper-right">
